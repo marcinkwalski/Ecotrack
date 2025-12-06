@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Ustaw nowe hasło</h1>
+
+<form method="post" class="card form">
+    <label>Nowe hasło
+        <input name="password" type="password" required>
+    </label>
+    <label>Powtórz hasło
+        <input name="confirm" type="password" required>
+    </label>
+    <button>Zapisz</button>
+</form>
+{% endblock %}

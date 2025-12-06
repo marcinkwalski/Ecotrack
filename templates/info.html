@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Informacje ekologiczne</h1>
+
+<section class="card">
+    <p>
+        Emisja dwutlenku węgla (CO₂) jest jednym z głównych czynników wpływających na zmianę klimatu.
+        Na tej stronie znajdziesz najważniejsze dane dotyczące emisji globalnych, europejskich i polskich,
+        aby lepiej zrozumieć kontekst Twoich działań.
+    </p>
+</section>
+
+<div class="info-grid">
+    {% for f in facts %}
+    <div class="info-card card">
+        <div class="info-icon">
+            <svg width="40" height="40" fill="none" stroke="#2b8a3e" stroke-width="1.5" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+            </svg>
+        </div>
+
+        <div>
+            <h3>{{ f.title }}</h3>
+            <div class="info-value">{{ f.value }}</div>
+            <p>{{ f.desc }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<style>
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.info-card h3 {
+    margin-bottom: 4px;
+    font-size: 18px;
+}
+
+.info-value {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2b8a3e;
+    margin-bottom: 6px;
+}
+</style>
+
+{% endblock %}

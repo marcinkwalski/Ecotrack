@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+/* Minimalne style pomocnicze – nie modyfikują Twojego globalnego CSS */
+.landing-hero {
+    text-align: center;
+    padding: 40px 20px;
+}
+.landing-hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+.landing-hero p {
+    font-size: 18px;
+    max-width: 650px;
+    margin: auto;
+    opacity: 0.85;
+}
+.landing-cta {
+    margin-top: 25px;
+}
+.landing-cta a {
+    display: inline-block;
+    padding: 12px 22px;
+    background: var(--primary, #2b8a3e);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 5px;
+}
+.landing-cta a.secondary {
+    background: #555;
+}
+
+.landing-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+.landing-card-icon {
+    font-size: 40px;
+}
+</style>
+
+
+<!-- HERO -->
+<div class="landing-hero">
+    <h1>Dbaj o planetę. Zacznij od siebie. 🌍</h1>
+    <p>
+        EcoTrack pomaga monitorować Twoją emisję CO₂ i odkrywać, jak codzienne wybory wpływają na środowisko.
+        Prosto, czytelnie i skutecznie.
+    </p>
+
+    <div class="landing-cta">
+        <a href="{{ url_for('register') }}">Załóż darmowe konto</a>
+        <a href="{{ url_for('login') }}" class="secondary">Zaloguj się</a>
+    </div>
+</div>
+
+
+<!-- Funkcje aplikacji -->
+<div class="landing-grid">
+
+    <div class="card">
+        <div class="landing-card-icon">📊</div>
+        <h3>Przejrzyste wykresy</h3>
+        <p>Monitoruj swoje emisje dzięki intuicyjnym wykresom i czytelnym statystykom.</p>
+    </div>
+
+    <div class="card">
+        <div class="landing-card-icon">🚗</div>
+        <h3>Kalkulator CO₂</h3>
+        <p>Transport, energia, żywność i zakupy — wszystko liczone automatycznie.</p>
+    </div>
+
+    <div class="card">
+        <div class="landing-card-icon">✨</div>
+        <h3>Symulacja „Co jeśli?”</h3>
+        <p>Sprawdź, jak zmiana nawyków wpływa na Twój ślad węglowy.</p>
+    </div>
+
+    <div class="card">
+        <div class="landing-card-icon">🌱</div>
+        <h3>Podpowiedzi ekologiczne</h3>
+        <p>Otrzymuj praktyczne wskazówki dopasowane do Twojego stylu życia.</p>
+    </div>
+
+    <div class="card">
+        <div class="landing-card-icon">📁</div>
+        <h3>Eksport raportów</h3>
+        <p>Pobieraj dane w PDF i CSV, analizuj postępy i dziel się wynikami.</p>
+    </div>
+
+    <div class="card">
+        <div class="landing-card-icon">🔒</div>
+        <h3>Bezpieczeństwo danych</h3>
+        <p>Twoje dane są zabezpieczone z użyciem najlepszych praktyk.</p>
+    </div>
+
+</div>
+
+
+<!-- STOPKA -->
+<div style="text-align:center; margin-top:40px; opacity:0.7;">
+    EcoTrack © {{ year }} • Razem dla klimatu 🌿
+</div>
+
+{% endblock %}

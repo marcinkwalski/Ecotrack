@@ -1,0 +1,365 @@
+/* ===================================================================
+   RESET + GLOBAL
+=================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", system-ui, sans-serif;
+    background: #f5f6f8;
+    color: #222;
+    line-height: 1.55;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Smooth transitions (dark mode etc.) */
+body.theme-transition *,
+body.theme-transition {
+    transition: 
+        background-color 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        filter 0.35s ease;
+}
+
+/* ===================================================================
+   HEADER / NAV
+=================================================================== */
+
+.site-header {
+    background: #2b8a3e;
+    padding: 15px 0;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.site-header .brand {
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+}
+
+.nav a {
+    color: white;
+    margin-left: 18px;
+    text-decoration: none;
+    font-weight: 500;
+    opacity: 0.92;
+}
+
+.nav a:hover {
+    opacity: 1;
+}
+
+/* Dark mode toggle button */
+#theme-toggle {
+    padding: 8px 14px !important;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.7);
+    color: #fff !important;
+    background: rgba(255,255,255,0.1);
+    cursor: pointer;
+}
+
+#theme-toggle:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* ===================================================================
+   FLASH MESSAGES
+=================================================================== */
+
+.flash {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.flash.success {
+    background: #d4f7d0;
+    border-left: 5px solid #2b8a3e;
+}
+
+.flash.error {
+    background: #ffd6d6;
+    border-left: 5px solid #d9534f;
+}
+
+.flash.info {
+    background: #d8e6ff;
+    border-left: 5px solid #337ab7;
+}
+
+/* ===================================================================
+   CARD COMPONENT
+=================================================================== */
+
+.card {
+    background: white;
+    padding: 20px 22px;
+    border-radius: 14px;
+    margin-bottom: 26px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+/* ===================================================================
+   KPI
+=================================================================== */
+
+.kpi-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.kpi {
+    flex: 1;
+    min-width: 180px;
+}
+
+.kpi-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.kpi-value {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 4px;
+    color: #1b6e2f;
+}
+
+.kpi-sub {
+    margin-top: 3px;
+    font-size: 12px;
+    color: #888;
+}
+
+/* ===================================================================
+   LAYOUT
+=================================================================== */
+
+.layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.9fr;
+    gap: 28px;
+}
+
+@media (max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===================================================================
+   FORMS
+=================================================================== */
+
+.form label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.form select,
+.form input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+.form input:focus,
+.form select:focus {
+    outline: 2px solid #2b8a3e;
+}
+
+/* ===================================================================
+   BUTTONS
+=================================================================== */
+
+button,
+.btn-animated,
+.btn-ghost,
+.btn-danger {
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    border: none;
+    font-size: 15px;
+}
+
+.btn-animated,
+button {
+    background: #2b8a3e;
+    color: white;
+}
+
+.btn-animated:hover {
+    background: #256d35;
+}
+
+.btn-ghost {
+    border: 1px solid #2b8a3e;
+    color: #2b8a3e;
+    background: transparent;
+}
+
+.btn-ghost:hover {
+    background: rgba(43,138,62,0.1);
+}
+
+.btn-danger {
+    background: #d9534f;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #b84340;
+}
+
+/* ===================================================================
+   TABLE
+=================================================================== */
+
+.records {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.records th {
+    background: #efefef;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.records td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.records tr:hover {
+    background: #fafafa;
+}
+
+/* ===================================================================
+   TIPS + INFO PAGE
+=================================================================== */
+
+.tips-grid,
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.tip-card,
+.info-card {
+    display: flex;
+    gap: 14px;
+}
+
+.tip-icon svg,
+.info-icon svg {
+    flex-shrink: 0;
+}
+
+/* ===================================================================
+   DARK MODE
+=================================================================== */
+
+body.dark {
+    background: #161616;
+    color: #e8e8e8;
+}
+
+body.dark .site-header {
+    background: #111;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+body.dark .nav a {
+    color: #fff;
+}
+
+body.dark #theme-toggle {
+    color: #fff;
+    border-color: rgba(255,255,255,0.4);
+}
+
+body.dark .card {
+    background: #202020;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.4);
+}
+
+body.dark .kpi-value {
+    color: #77ff9e;
+}
+
+body.dark input,
+body.dark select {
+    background: #2a2a2a;
+    color: #e8e8e8;
+    border: 1px solid #444;
+}
+
+body.dark .records th {
+    background: #292929;
+    color: #ddd;
+}
+
+body.dark .records td {
+    border-bottom: 1px solid #383838;
+}
+
+body.dark .records tr:hover {
+    background: #2f2f2f;
+}
+
+body.dark .btn-ghost {
+    border-color: #66cc8a;
+    color: #66cc8a;
+}
+
+body.dark .btn-ghost:hover {
+    background: rgba(102,204,138,0.15);
+}
+
+body.dark button,
+body.dark .btn-animated {
+    background: #1e7c3d;
+}
+
+body.dark button:hover,
+body.dark .btn-animated:hover {
+    background: #176a33;
+}
+
+body.dark .btn-danger {
+    background: #9c2f2f;
+}
+
+body.dark .btn-danger:hover {
+    background: #812727;
+}
+
+body.dark svg {
+    filter: brightness(1.2);
+}

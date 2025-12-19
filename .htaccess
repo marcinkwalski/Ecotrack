@@ -1,0 +1,9 @@
+PassengerEnabled on
+PassengerAppRoot /home/host523765/domains/ecotrack.com.pl/eco_app/app
+PassengerAppType wsgi
+PassengerStartupFile passenger_wsgi.py
+Options -Indexes
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerBaseURI "/"
+PassengerPython "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/bin/python"
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END

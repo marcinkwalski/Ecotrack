@@ -1,0 +1,67 @@
+<form action="{{ url_for('add_emission') }}" method="post">
+    <label for="category">Kategoria</label>
+    <select id="category" name="category" onchange="onCategoryChange()" required>
+    <option value="transport">Transport</option>
+    <option value="food">Jedzenie</option>
+    <option value="energy">Energia</option>
+    <option value="other">Inne</option>
+  </select>
+
+    <label for="subcategory">Środek / Produkt</label>
+    <select id="subcategory" name="subcategory"></select>
+
+    <label for="amount">Ilość</label>
+    <input id="amount" name="amount" type="number" step="any" required>
+
+    <label for="unit">Jednostka (np. km / kg / kWh)</label>
+    <input id="unit" name="unit" type="text" placeholder="km / kg / kWh">
+
+    <label for="note">Notatka</label>
+    <input id="note" name="note" type="text">
+
+    <button type="submit">Dodaj</button>
+</form>
+
+<script>
+    const subcats = {
+  transport: [
+    ["walk","Pieszo"],["bike","Rower"],["escooter_electric","Hulajnoga elektryczna"],
+    ["scooter_petrol","Hulajnoga spalinowa"],["car_petrol","Samochód (benzyna)"],
+    ["car_diesel","Samochód (diesel)"],["car_hybrid","Samochód (hybrid)"],
+    ["car_ev","Samochód (elektryczny)"],["bus","Autobus"],["train","Pociąg"],
+    ["plane_short","Samolot (krótki)"],["plane_long","Samolot (długi)"]
+  ],
+  food: [
+    ["beef","Wołowina"],["lamb","Jagnięcina"],["cheese","Ser"],["pork","Wieprzowina"],
+    ["poultry","Drób"],["eggs","Jajka"],["fish","Ryba"],["vegetables","Warzywa"],
+    ["fruits","Owoce"],["grains","Zboża"],["nuts","Orzechy"]
+  ],
+  energy: [
+    ["electricity_pl","Elektryczność (mix PL)"],["electricity_green","Elektryczność (OZE)"],
+    ["gas","Gaz"],["lpg","LPG"],["coal","Węgiel"]
+  ],
+  other: [
+    ["electronics","Elektronika"],["clothing","Odzież"],["furniture","Meble"]
+  ]
+};
+
+function onCategoryChange() {
+  const cat = document.getElementById('category').value;
+  const sel = document.getElementById('subcategory');
+  sel.innerHTML = "";
+  (subcats[cat] || []).forEach(([val,label]) => {
+    const opt = document.createElement('option');
+    opt.value = val; opt.textContent = label;
+    sel.appendChild(opt);
+  });
+
+  // sugestia jednostki
+  const unit = document.getElementById('unit');
+  if (cat === 'transport') unit.value = 'km';
+  else if (cat === 'food') unit.value = 'kg';
+  else if (cat === 'energy') unit.value = 'kWh';
+  else unit.value = '';
+}
+
+document.addEventListener('DOMContentLoaded', onCategoryChange);
+</script>

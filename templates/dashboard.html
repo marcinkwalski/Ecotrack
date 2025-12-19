@@ -5,7 +5,6 @@
 
 <!-- KPI SECTION -->
 <section class="kpi-row">
-
     <div class="kpi card">
         <div class="kpi-body">
             <div class="kpi-label">Łączna emisja</div>
@@ -37,12 +36,11 @@
 
     <div class="kpi card">
         <div class="kpi-body">
-            <div class="kpi-label">W porównaniu do Polski</div>
+            <div class="kpi-label">Porównanie z PL</div>
             <div class="kpi-value">{{ compare_percent|round(1) }}%</div>
-            <div class="kpi-sub">Średnia: {{ poland_avg }} kg/rok</div>
+            <div class="kpi-sub">Średnia PL: {{ poland_avg }} kg/rok</div>
         </div>
     </div>
-
 </section>
 
 
@@ -52,23 +50,32 @@
     <!-- LEFT COLUMN -->
     <div class="left-col">
 
-        <!-- Add emission form -->
+        <!-- ADD EMISSION -->
         <section class="card">
             <h2>Dodaj emisję</h2>
 
             <form method="post" action="{{ url_for('add_emission') }}" class="form">
-
-                <label>Kategoria
-                    <select name="category" required>
-                        <option value="transport">Transport (km)</option>
-                        <option value="food">Jedzenie (kg)</option>
-                        <option value="energy">Energia (kWh)</option>
+                <label>
+                    Kategoria
+                    <select id="category" name="category" required onchange="updateSubcategories()">
+                        <option value="transport">Transport</option>
+                        <option value="food">Jedzenie</option>
+                        <option value="energy">Energia</option>
                         <option value="other">Inne</option>
                     </select>
                 </label>
 
+                <label>
+                    Podkategoria
+                    <select id="subcategory" name="subcategory" required></select>
+                </label>
+
                 <label>Ilość
-                    <input name="amount" type="number" step="0.1" required>
+                    <input name="amount" type="number" step="0.01" required>
+                </label>
+
+                <label>Jednostka
+                    <input id="unit" name="unit" type="text" readonly>
                 </label>
 
                 <label>Notatka
@@ -101,30 +108,37 @@
         <!-- PIE CHART -->
         <section class="card">
             <h2>Udział kategorii emisji</h2>
-
             <canvas id="pieChart" style="width:100%; height:300px;"></canvas>
         </section>
 
 
         <!-- SIMULATION -->
         <section class="card">
-            <h2>Symulacja „co jeśli?”</h2>
+           <div class="card" style="margin-top: 20px;">
+    <h2>Symulacja „Co jeśli?”</h2>
 
-            <label>Kategoria:
-                <select id="sim-cat">
-                    <option value="transport">Transport (km/tydzień)</option>
-                    <option value="energy">Energia (kWh/miesiąc)</option>
-                    <option value="food">Jedzenie (kg/tydzień)</option>
-                </select>
-            </label>
+    <label>Kategoria</label>
+    <select id="sim-category" class="form-input">
+        <option value="">-- wybierz --</option>
+        <option value="transport">Transport</option>
+        <option value="food">Żywność</option>
+        <option value="energy">Energia</option>
+        <option value="other">Inne</option>
+    </select>
 
-            <label>Redukcja:
-                <input id="sim-amount" type="number" step="0.1">
-            </label>
+    <label>Podkategoria</label>
+    <select id="sim-subcategory" class="form-input">
+        <option value="">-- wybierz kategorię --</option>
+    </select>
 
-            <button class="btn-ghost" onclick="simulate()">Oblicz</button>
+    <label>Zmiana ilości</label>
+    <input id="sim-amount" type="number" class="form-input" placeholder="np. 50">
 
-            <p id="sim-result"></p>
+    <button id="sim-run" class="btn-primary" style="margin-top: 12px;">Przelicz</button>
+
+    <div id="sim-result" style="margin-top:20px; display:none;"></div>
+</div>
+
         </section>
 
     </div>
@@ -136,14 +150,31 @@
         <section class="card">
             <h2>Historia emisji</h2>
 
-            <button onclick="window.location.href='{{ url_for('export_csv') }}'" class="btn-ghost">Eksport CSV</button>
-            <button onclick="window.location.href='{{ url_for('export_pdf') }}'" class="btn-ghost">Eksport PDF</button>
+            <button onclick="window.location.href='{{ url_for('export_csv') }}'" class="btn-ghost">CSV</button>
+            <button onclick="window.location.href='{{ url_for('export_pdf') }}'" class="btn-ghost">PDF</button>
+<style>
+    .records td,
+    .records th {
+        padding: 4px 6px !important;
+        font-size: 15px;
+        line-height: 1.4;
+    }
 
+    .records tr {
+        height: 25px !important;
+    }
+
+    .records {
+        font-size: 15px;
+    }
+</style>
             <table class="records">
                 <thead>
                     <tr>
                         <th>Data</th>
                         <th>Kategoria</th>
+                        <th>Podkategoria</th>
+                        <th>Ilość</th>
                         <th>CO₂ (kg)</th>
                         <th>Notatka</th>
                         <th></th>
@@ -151,20 +182,22 @@
                 </thead>
 
                 <tbody>
-                {% for rec in records %}
+                    {% for r in records %}
                     <tr>
-                        <td>{{ rec.created_at.strftime("%Y-%m-%d %H:%M") }}</td>
-                        <td>{{ rec.category }}</td>
-                        <td>{{ "%.3f"|format(rec.value) }}</td>
-                        <td>{{ rec.note }}</td>
-                        <td style="white-space: nowrap;">
-                            <a class="btn-ghost" href="{{ url_for('edit_emission', id=rec.id) }}">Edytuj</a>
-                            <form action="{{ url_for('delete_emission', id=rec.id) }}" method="post" style="display:inline;">
+                        <td>{{ r.created_at.strftime("%Y-%m-%d %H:%M") }}</td>
+                        <td>{{ r.category }}</td>
+                        <td>{{ SUBCATEGORY_LABELS.get(r.subcategory, r.subcategory) }}</td>
+                        <td>{{ r.raw_amount }} {{ r.amount_unit }}</td>
+                        <td>{{ "%.3f"|format(r.value) }}</td>
+                        <td>{{ r.note }}</td>
+                        <td style="white-space:nowrap;">
+                            <form action="{{ url_for('delete_emission', id=r.id) }}" method="post"
+                                style="display:inline;">
                                 <button class="btn-danger">Usuń</button>
                             </form>
                         </td>
                     </tr>
-                {% endfor %}
+                    {% endfor %}
                 </tbody>
             </table>
 
@@ -175,231 +208,384 @@
 </div>
 
 
-<!-- JSON -->
+<!-- JSON Data -->
 <script>
-const RECORDS = {{ records_json|tojson }};
+    const RECORDS = {{ records_json | tojson }};
 </script>
+
+
+<!-- SUBCATEGORY / UNIT LOGIC -->
+<script>
+    const SUBCATEGORIES = {
+    transport: {
+        walk: "Spacer",
+        bike: "Rower",
+        escooter_electric: "Hulajnoga elektryczna",
+        scooter_petrol: "Skuter spalinowy",
+        car_petrol: "Samochód benzynowy",
+        car_diesel: "Samochód diesel",
+        car_hybrid: "Samochód hybrydowy",
+        car_ev: "Samochód elektryczny",
+        bus: "Autobus",
+        train: "Pociąg",
+        plane_short: "Samolot (krótki lot)",
+        plane_long: "Samolot (długi lot)"
+    },
+    food: {
+        beef: "Wołowina",
+        lamb: "Baranina",
+        cheese: "Ser",
+        pork: "Wieprzowina",
+        poultry: "Drób",
+        eggs: "Jajka",
+        fish: "Ryby",
+        vegetables: "Warzywa",
+        fruits: "Owoce",
+        grains: "Zboża",
+        nuts: "Orzechy"
+    },
+    energy: {
+        electricity_pl: "Energia (mix PL)",
+        electricity_green: "Energia zielona",
+        gas: "Gaz",
+        lpg: "LPG",
+        coal: "Węgiel"
+    }
+};
+
+const UNITS = {
+    transport: "km",
+    food: "kg",
+    energy: "kWh",
+    other: "szt"
+};
+
+function updateSubcategories(){
+    const cat = document.getElementById("category").value;
+    const subSel = document.getElementById("subcategory");
+    const unit = document.getElementById("unit");
+
+    subSel.innerHTML = "";
+    for(let k in SUBCATEGORIES[cat]){
+        let opt = document.createElement("option");
+        opt.value = k;
+        opt.textContent = SUBCATEGORIES[cat][k];
+        subSel.appendChild(opt);
+    }
+    unit.value = UNITS[cat];
+}
+
+document.addEventListener("DOMContentLoaded", updateSubcategories);
+</script>
+
+
+<!-- SIMULATION LOGIC -->
+<script>
+    function updateSimSub(){
+    const cat = document.getElementById("sim-cat").value;
+    const subSel = document.getElementById("sim-sub");
+
+    subSel.innerHTML = "";
+    for(let k in SUBCATEGORIES[cat]){
+        let opt = document.createElement("option");
+        opt.value = k;
+        opt.textContent = SUBCATEGORIES[cat][k];
+        subSel.appendChild(opt);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", updateSimSub);
+document.getElementById("sim-cat").addEventListener("change", updateSimSub);
+
+
+function simulate(){
+    const cat = document.getElementById("sim-cat").value;
+    const sub = document.getElementById("sim-sub").value;
+    const amount = Number(document.getElementById("sim-amount").value);
+
+    fetch("/simulate", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({
+            category: cat,
+            subcategory: sub,
+            change: amount
+        })
+    })
+    .then(r => r.json())
+    .then(data => {
+        document.getElementById("sim-result").textContent =
+            "Roczna zmiana emisji: " + data.change_kg_year.toFixed(2) + " kg CO₂";
+    });
+}
+</script>
+
 
 <!-- CHARTS -->
 <script>
-/* =====================================================
-   DAILY SUMS
-===================================================== */
-function getDailySums(records) {
+    function getDaily(records){
     let sums = {};
-    records.forEach(r => {
+    records.forEach(r=>{
         let d = r.created_at.split("T")[0];
-        sums[d] = (sums[d] || 0) + Number(r.value);
+        sums[d] = (sums[d]||0) + Number(r.value);
     });
     return sums;
 }
 
-function filterByRange(daily, range) {
-    if (range === "all") return daily;
-
+function filterRange(daily, range){
+    if(range==="all") return daily;
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() - Number(range) + 1);
 
     let out = {};
-    for (let d of Object.keys(daily)) {
-        const dt = new Date(d);
-        if (dt >= cutoff) out[d] = daily[d];
+    for(let d in daily){
+        if(new Date(d) >= cutoff) out[d] = daily[d];
     }
     return out;
 }
 
+function drawLine(records, range){
+    const cv = document.getElementById("emissionChart");
+    const ctx = cv.getContext("2d");
 
-/* =====================================================
-   RESPONSIVE LINE CHART (WITH 1-POINT SUPPORT)
-===================================================== */
-function drawLineChart(records, range) {
-    const canvas = document.getElementById("emissionChart");
-    const ctx = canvas.getContext("2d");
+    cv.width = cv.clientWidth;
+    cv.height = cv.clientHeight;
 
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
-
-    canvas.width = width;
-    canvas.height = height;
-
-    let daily = getDailySums(records);
-    daily = filterByRange(daily, range);
+    let daily = getDaily(records);
+    daily = filterRange(daily, range);
 
     const days = Object.keys(daily).sort();
-    const values = days.map(d => daily[d]);
+    const values = days.map(d=>daily[d]);
 
-    ctx.clearRect(0, 0, width, height);
+    ctx.clearRect(0,0,cv.width,cv.height);
 
-    // NO DATA
-    if (values.length === 0) {
-        ctx.font = "16px sans-serif";
-        ctx.fillText("Brak danych", 20, 40);
+    if(values.length===0){
+        ctx.fillText("Brak danych",20,40);
         return;
     }
 
-    // SINGLE POINT
-    if (values.length === 1) {
-        ctx.fillStyle = "#2b8a3e";
+    if(values.length===1){
         ctx.beginPath();
-        ctx.arc(width/2, height/2, 6, 0, Math.PI*2);
+        ctx.arc(cv.width/2, cv.height/2, 6, 0, Math.PI*2);
         ctx.fill();
-
-        ctx.font = "12px sans-serif";
-        ctx.fillText(days[0], width/2 - 30, height - 20);
+        ctx.fillText(days[0], cv.width/2-30, cv.height-10);
         return;
     }
 
-    // MULTI-POINT CHART
-    const ML = 60, MR = 20, MT = 20, MB = 50;
-    const CW = width - ML - MR;
-    const CH = height - MT - MB;
+    const ML=60, MR=20, MT=20, MB=40;
+    const W = cv.width - ML - MR;
+    const H = cv.height - MT - MB;
 
-    const maxVal = Math.max(...values) * 1.15;
+    const maxVal = Math.max(...values)*1.2;
 
-    const x = i => ML + (i / (values.length - 1)) * CW;
-    const y = v => MT + CH - (v / maxVal) * CH;
+    const x=i => ML + (i/(values.length-1))*W;
+    const y=v => MT + H - (v/maxVal)*H;
 
-    // GRID
-    ctx.strokeStyle = "#ddd";
-    ctx.lineWidth = 1;
+    ctx.strokeStyle="#ccc";
+    ctx.lineWidth=1;
 
-    for (let i = 0; i <= 4; i++) {
-        let yy = MT + (CH / 4) * i;
+    for(let i=0; i<=4; i++){
+        let yy = MT + (H/4)*i;
         ctx.beginPath();
-        ctx.moveTo(ML, yy);
-        ctx.lineTo(width - MR, yy);
+        ctx.moveTo(ML,yy);
+        ctx.lineTo(cv.width-MR,yy);
         ctx.stroke();
-
-        ctx.fillStyle = "#555";
-        ctx.font = "12px sans-serif";
-        ctx.fillText((maxVal * (1 - i / 4)).toFixed(1) + " kg", 10, yy + 4);
+        ctx.fillText((maxVal*(1-i/4)).toFixed(1), 10, yy+4);
     }
-
-    // LINE
-    ctx.strokeStyle = "#2b8a3e";
-    ctx.lineWidth = 3;
 
     ctx.beginPath();
-    ctx.moveTo(x(0), y(values[0]));
-    for (let i = 1; i < values.length; i++) {
-        ctx.lineTo(x(i), y(values[i]));
+    ctx.strokeStyle="#2b8a3e";
+    ctx.lineWidth=3;
+    ctx.moveTo(x(0),y(values[0]));
+    for(let i=1;i<values.length;i++){
+        ctx.lineTo(x(i),y(values[i]));
     }
     ctx.stroke();
 
-    // POINTS
-    ctx.fillStyle = "#2b8a3e";
-    values.forEach((v, i) => {
+    ctx.fillStyle="#2b8a3e";
+    values.forEach((v,i)=>{
         ctx.beginPath();
-        ctx.arc(x(i), y(v), 4, 0, Math.PI*2);
+        ctx.arc(x(i), y(v),4,0,Math.PI*2);
         ctx.fill();
     });
-
-    // X LABELS
-    ctx.fillStyle = "#333";
-    ctx.font = "12px sans-serif";
-
-    let step = Math.ceil(values.length / 5);
-    for (let i = 0; i < days.length; i += step) {
-        ctx.fillText(days[i], x(i) - 20, height - 20);
-    }
 }
 
+function drawPie(records){
+    const cv = document.getElementById("pieChart");
+    const ctx = cv.getContext("2d");
 
-/* =====================================================
-   PIE CHART WITH LABELS
-===================================================== */
-function drawPieChart(records) {
-    const canvas = document.getElementById("pieChart");
-    const ctx = canvas.getContext("2d");
+    cv.width = cv.clientWidth;
+    cv.height = cv.clientHeight;
 
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
-
-    canvas.width = width;
-    canvas.height = height;
-
-    ctx.clearRect(0, 0, width, height);
-
-    const sums = {};
-    records.forEach(r => sums[r.category] = (sums[r.category] || 0) + r.value);
+    let sums = {};
+    records.forEach(r=> sums[r.category]=(sums[r.category]||0)+r.value );
 
     const total = Object.values(sums).reduce((a,b)=>a+b,0);
-
-    if (total === 0) {
-        ctx.fillText("Brak danych", 20, 40);
+    if(total===0){
+        ctx.fillText("Brak danych",20,40);
         return;
     }
 
-    const categories = Object.keys(sums);
-    const values = Object.values(sums);
-    const colors = ["#2b8a3e", "#be5f18", "#f39c12", "#6c757d"];
-
     let start = 0;
-    const cx = width / 2;
-    const cy = height / 2;
-    const R = Math.min(width, height) / 2 - 20;
+    const cx = cv.width/2;
+    const cy = cv.height/2;
+    const R = Math.min(cx,cy)-20;
 
-    values.forEach((v,i)=>{
-        let slice = (v/total) * 2 * Math.PI;
+    const colors=["#2b8a3e","#be5f18","#f39c12","#6c757d"];
 
-        // Slice
+    Object.keys(sums).forEach((cat,i)=>{
+        const val = sums[cat];
+        const slice = (val/total)*2*Math.PI;
+
         ctx.beginPath();
         ctx.moveTo(cx,cy);
         ctx.arc(cx,cy,R,start,start+slice);
-        ctx.fillStyle = colors[i];
+        ctx.fillStyle = colors[i%colors.length];
         ctx.fill();
 
-        // Labels
-        const angle = start + slice / 2;
-        const lx = cx + Math.cos(angle) * (R * 0.65);
-        const ly = cy + Math.sin(angle) * (R * 0.65);
+        const mid = start + slice/2;
+        const lx = cx + Math.cos(mid)*R*0.6;
+        const ly = cy + Math.sin(mid)*R*0.6;
 
-        ctx.fillStyle = "#222";
-        ctx.font = "13px sans-serif";
-        const pct = ((v/total)*100).toFixed(1);
-        ctx.fillText(`${categories[i]} (${pct}%)`, lx - 40, ly);
+        ctx.fillStyle="#222";
+        ctx.fillText(cat+" "+((val/total)*100).toFixed(1)+"%", lx-30, ly);
 
-        start += slice;
+        start+=slice;
     });
 }
 
-
-/* =====================================================
-   SIMULATION
-===================================================== */
-function simulate(){
-    const category = document.getElementById("sim-cat").value;
-    const change = Number(document.getElementById("sim-amount").value);
-
-    fetch("/simulate",{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({category, change})
-    })
-    .then(r=>r.json())
-    .then(d=>{
-        document.getElementById("sim-result").innerText =
-            "Zmniejszysz emisję roczną o " + d.change_kg_year.toFixed(2) + " kg CO₂.";
-    });
-}
-
-
-/* =====================================================
-   INIT
-===================================================== */
 document.addEventListener("DOMContentLoaded", ()=>{
-    const select = document.getElementById("rangeSelect");
+    const sel = document.getElementById("rangeSelect");
 
-    function updateCharts(){
-        drawLineChart(RECORDS, select.value);
-        drawPieChart(RECORDS);
+    function update(){
+        drawLine(RECORDS, sel.value);
+        drawPie(RECORDS);
     }
 
-    select.addEventListener("change", updateCharts);
-    window.addEventListener("resize", updateCharts);
-
-    updateCharts();
+    sel.addEventListener("change", update);
+    window.addEventListener("resize", update);
+    update();
 });
 </script>
+
+<script>
+// =======================
+// 1. MAPA podkategorii
+// =======================
+const SUBS = {
+    transport: {
+        walk: "Spacer",
+        bike: "Rower",
+        escooter_electric: "E-hulajnoga",
+        scooter_petrol: "Skuter (benzyna)",
+        car_petrol: "Samochód benzynowy",
+        car_diesel: "Samochód diesel",
+        car_hybrid: "Samochód hybrydowy",
+        car_ev: "Samochód elektryczny",
+        bus: "Autobus",
+        train: "Pociąg",
+        plane_short: "Lot krótki",
+        plane_long: "Lot długi"
+    },
+    food: {
+        beef: "Wołowina",
+        lamb: "Baranina",
+        cheese: "Ser",
+        pork: "Wieprzowina",
+        poultry: "Drób",
+        eggs: "Jajka",
+        fish: "Ryby",
+        vegetables: "Warzywa",
+        fruits: "Owoce",
+        grains: "Zboża",
+        nuts: "Orzechy"
+    },
+    energy: {
+        electricity_pl: "Prąd (mix PL)",
+        electricity_green: "Prąd zielony",
+        gas: "Gaz",
+        lpg: "LPG",
+        coal: "Węgiel"
+    },
+    other: {
+        electronics: "Elektronika",
+        clothing: "Ubrania",
+        furniture: "Meble"
+    }
+};
+
+// =======================
+// 2. Po wyborze kategorii → wypełnij podkategorie
+// =======================
+document.getElementById("sim-category").addEventListener("change", () => {
+    const cat = document.getElementById("sim-category").value;
+    const subSelect = document.getElementById("sim-subcategory");
+
+    subSelect.innerHTML = "<option value=''>-- wybierz --</option>";
+
+    if (!SUBS[cat]) return;
+
+    Object.entries(SUBS[cat]).forEach(([key, label]) => {
+        subSelect.innerHTML += `<option value="${key}">${label}</option>`;
+    });
+});
+
+// =======================
+// 3. Wywołanie API
+// =======================
+document.getElementById("sim-run").addEventListener("click", async () => {
+    const category = document.getElementById("sim-category").value;
+    const subcategory = document.getElementById("sim-subcategory").value;
+    const amount = document.getElementById("sim-amount").value;
+
+    if (!category || !subcategory || !amount) {
+        alert("Wypełnij wszystkie pola");
+        return;
+    }
+
+    const res = await fetch("/simulate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            category,
+            subcategory,
+            change: parseFloat(amount)
+        })
+    });
+
+    const data = await res.json();
+
+    // ===========================
+    // 4. Prezentacja wyniku
+    // ===========================
+    const box = document.getElementById("sim-result");
+    box.style.display = "block";
+
+    if (data.error) {
+        box.innerHTML = `<div class='error'>${data.error}</div>`;
+        return;
+    }
+
+    box.innerHTML = `
+    <div class="card" style="background:#f3fff3;">
+        <h3>Wynik symulacji</h3>
+        <p><b>Zmiana:</b> ${amount} jednostek (${SUBS[category][subcategory]})</p>
+
+        <ul>
+            <li><b>Dziennie:</b> ${data.daily} kg CO₂</li>
+            <li><b>Miesięcznie:</b> ${data.monthly} kg CO₂</li>
+            <li><b>Rocznie:</b> ${data.yearly} kg CO₂ (${data.yearly_tons} t)</li>
+        </ul>
+
+        <h4>To odpowiada:</h4>
+        <ul>
+            <li>${data.equivalents.trees_absorbed} drzew (pochłanianie CO₂ przez rok)</li>
+            <li>${data.equivalents.car_km} km przejazdu samochodem</li>
+        </ul>
+    </div>
+    `;
+});
+</script>
+
 
 {% endblock %}

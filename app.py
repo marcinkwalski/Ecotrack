@@ -1,3 +1,5 @@
+import pymysql
+pymysql.install_as_MySQLdb()
 from flask import Flask, render_template, request, redirect, url_for, flash, make_response, send_file, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -12,8 +14,8 @@ import jwt
 import logging
 import os
 from dotenv import load_dotenv
-import os
 from cryptography.fernet import Fernet
+
 
 load_dotenv()
 FERNET_KEY = os.getenv("FERNET_KEY")
@@ -22,6 +24,7 @@ if not FERNET_KEY:
     raise RuntimeError("Brak FERNET_KEY w pliku .env")
 
 f = Fernet(FERNET_KEY.encode())
+
 # =====================================================
 # APP CONFIG
 # =====================================================
@@ -29,20 +32,15 @@ f = Fernet(FERNET_KEY.encode())
 app = Flask(__name__)
 app.secret_key = "change-me-secure"
 
-DB_PATH = "ecotrack.db"
-
 app.config['SQLALCHEMY_DATABASE_URI'] = (
-    "mysql+pymysql://ecotrack_user:haslo123@localhost:3307/ecotrack"
+    "mysql+pymysql://host523765_ecotrack:dt65fr6aJj4LMRz99YQZ@localhost/host523765_ecotrack?charset=utf8mb4"
 )
-
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
 JWT_SECRET = "super-strong-secret"
 
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
-login_manager.login_view = 'login'
-
+login_manager.login_view = "login"
 
 # =====================================================
 # LOGGING
@@ -51,11 +49,19 @@ login_manager.login_view = 'login'
 logging.basicConfig(
     filename="error.log",
     level=logging.ERROR,
-    format="%(asctime)s [%(levelname)s] %(message)s"
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    encoding="utf-8"
 )
+
+from werkzeug.exceptions import HTTPException
 
 @app.errorhandler(Exception)
 def handle_exception(e):
+    # Jeśli to normalny HTTP wyjątek (np. 404 dla static) → Flask powinien go obsłużyć
+    if isinstance(e, HTTPException):
+        return e
+
+    # Loguj tylko prawdziwe błędy 500
     logging.error("Unhandled exception:", exc_info=e)
     return "Wystąpił błąd. Szczegóły zapisane w error.log", 500
 
@@ -76,16 +82,21 @@ class User(db.Model, UserMixin):
     def check_password(self, pwd):
         return check_password_hash(self.password_hash, pwd)
 
-
 class EmissionRecord(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+
     category = db.Column(db.String(100), nullable=False)
+    subcategory = db.Column(db.String(100), nullable=True)
+
+    raw_amount = db.Column(db.Float, nullable=True)
+    amount_unit = db.Column(db.String(20), nullable=True)
+
     value = db.Column(db.Float, nullable=False)
     note = db.Column(db.String(255))
+
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     user = db.relationship("User", backref="emissions")
-
 
 class PasswordResetToken(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -94,46 +105,132 @@ class PasswordResetToken(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     user = db.relationship("User")
 
-
 @login_manager.user_loader
 def load_user(uid):
     return User.query.get(int(uid))
 
-
 # =====================================================
-# CONSTANTS & HELPERS
+# EMISSION FACTORS
 # =====================================================
 
-FACTORS = {
-    "transport": 0.21,
-    "energy": 0.233,
-    "food": 2.5,
-    "other": 1.0
+EMISSION_FACTORS = {
+    "transport": {
+        "walk": 0.0,
+        "bike": 0.0,
+        "escooter_electric": 0.021,
+        "scooter_petrol": 0.072,
+        "car_petrol": 0.192,
+        "car_diesel": 0.171,
+        "car_hybrid": 0.110,
+        "car_ev": 0.045,
+        "bus": 0.105,
+        "train": 0.041,
+        "plane_short": 0.254,
+        "plane_long": 0.151
+    },
+    "food": {
+        "beef": 27.0,
+        "lamb": 24.0,
+        "cheese": 13.0,
+        "pork": 12.0,
+        "poultry": 6.9,
+        "eggs": 4.8,
+        "fish": 5.4,
+        "vegetables": 2.0,
+        "fruits": 1.0,
+        "grains": 1.4,
+        "nuts": 0.3
+    },
+    "energy": {
+        "electricity_pl": 0.724,
+        "electricity_green": 0.05,
+        "gas": 2.0,
+        "lpg": 1.6,
+        "coal": 2.42
+    },
+    "other": {
+        "electronics": 200.0,
+        "clothing": 10.0,
+        "furniture": 150.0
+    }
 }
 
-POLAND_AVG_CO2 = 8000  # kg rocznie
+POLAND_AVG_CO2 = 8000
 
-def compute_emission(cat, amount):
-    return float(amount) * FACTORS.get(cat, 1.0)
+# =====================================================
+# SUBCATEGORY LABELS (Polskie nazwy)
+# =====================================================
 
+SUBCATEGORY_LABELS = {
+    # Transport
+    "walk": "Spacer",
+    "bike": "Rower",
+    "escooter_electric": "Hulajnoga elektryczna",
+    "scooter_petrol": "Skuter (benzyna)",
+    "car_petrol": "Samochód benzynowy",
+    "car_diesel": "Samochód diesel",
+    "car_hybrid": "Samochód hybrydowy",
+    "car_ev": "Samochód elektryczny",
+    "bus": "Autobus",
+    "train": "Pociąg",
+    "plane_short": "Lot krótki",
+    "plane_long": "Lot długi",
+
+    # Jedzenie
+    "beef": "Wołowina",
+    "lamb": "Baranina",
+    "cheese": "Ser",
+    "pork": "Wieprzowina",
+    "poultry": "Drób",
+    "eggs": "Jajka",
+    "fish": "Ryby",
+    "vegetables": "Warzywa",
+    "fruits": "Owoce",
+    "grains": "Zboża",
+    "nuts": "Orzechy",
+
+    # Energia
+    "electricity_pl": "Prąd (mix PL)",
+    "electricity_green": "Zielona energia",
+    "gas": "Gaz ziemny",
+    "lpg": "LPG",
+    "coal": "Węgiel",
+
+    # Inne
+    "electronics": "Elektronika",
+    "clothing": "Ubrania",
+    "furniture": "Meble"
+}
+
+
+# =====================================================
+# HELPER FUNCTIONS
+# =====================================================
+
+def compute_emission(category, subcategory, amount):
+    try:
+        factor = EMISSION_FACTORS.get(category, {}).get(subcategory)
+        if factor is None:
+            return float(amount)
+        return float(amount) * float(factor)
+    except:
+        return float(amount)
 
 def daily_sums_for_user(uid):
     recs = EmissionRecord.query.filter_by(user_id=uid).all()
-    out = {}
+    sums = {}
     for r in recs:
         d = r.created_at.date().isoformat()
-        out[d] = out.get(d, 0) + float(r.value)
-    return dict(sorted(out.items()))
-
+        sums[d] = sums.get(d, 0) + float(r.value)
+    return dict(sorted(sums.items()))
 
 def totals_for_period(uid, days):
     since = datetime.utcnow() - timedelta(days=days - 1)
     recs = EmissionRecord.query.filter(
         EmissionRecord.user_id == uid,
-        EmissionRecord.created_at >= since,
+        EmissionRecord.created_at >= since
     ).all()
     return sum(float(r.value) for r in recs)
-
 
 def predict_annual_from_daily_sums(sums):
     if not sums:
@@ -151,19 +248,17 @@ def predict_annual_from_daily_sums(sums):
     except:
         return avg * 365
 
-
 # =====================================================
 # AUTH ROUTES
 # =====================================================
 
-@app.route('/')
+@app.route("/")
 def index():
     if current_user.is_authenticated:
         return redirect(url_for("dashboard"))
-    return render_template("index.html")
+    return render_template("index.html", year=datetime.now().year)
 
-
-@app.route('/register', methods=["GET","POST"])
+@app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
         email = request.form["email"].strip().lower()
@@ -188,8 +283,7 @@ def register():
 
     return render_template("register.html")
 
-
-@app.route('/login', methods=["GET","POST"])
+@app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         email = request.form["email"].strip().lower()
@@ -198,11 +292,8 @@ def login():
         u = User.query.filter_by(email=email).first()
         if u and u.check_password(pwd):
             login_user(u)
-
-            # Show JWT token
             token = jwt.encode({"user_id": u.id}, JWT_SECRET, algorithm="HS256")
             flash(f"Twój token JWT: {token}", "info")
-
             return redirect(url_for("dashboard"))
 
         flash("Błędne dane logowania", "error")
@@ -210,74 +301,34 @@ def login():
 
     return render_template("login.html")
 
-
-@app.route('/logout')
+@app.route("/logout")
 @login_required
 def logout():
     logout_user()
     flash("Wylogowano", "success")
     return redirect(url_for("index"))
 
-
-# =====================================================
-# PASSWORD RESET
-# =====================================================
-
-@app.route("/reset-request", methods=["GET","POST"])
+@app.route("/reset_request", methods=["GET", "POST"])
 def reset_request():
     if request.method == "POST":
         email = request.form["email"].strip().lower()
         user = User.query.filter_by(email=email).first()
 
         if user:
-            token = secrets.token_urlsafe(32)
-            entry = PasswordResetToken(user_id=user.id, token=token)
-            db.session.add(entry)
-            db.session.commit()
-            print("RESET LINK:", f"http://localhost:5000/reset/{token}")
+            # tu możesz później dodać wysyłanie maila / token
+            flash("Jeśli konto istnieje, wysłaliśmy instrukcję resetu hasła.", "info")
+        else:
+            flash("Jeśli konto istnieje, wysłaliśmy instrukcję resetu hasła.", "info")
 
-        flash("Jeśli email istnieje, link został wysłany.", "info")
         return redirect(url_for("login"))
 
     return render_template("reset_request.html")
-
-
-@app.route("/reset/<token>", methods=["GET","POST"])
-def reset_password(token):
-    entry = PasswordResetToken.query.filter_by(token=token).first()
-    if not entry:
-        flash("Nieprawidłowy token", "error")
-        return redirect(url_for("login"))
-
-    if (datetime.utcnow() - entry.created_at).total_seconds() > 86400:
-        flash("Token wygasł", "error")
-        return redirect(url_for("login"))
-
-    user = entry.user
-
-    if request.method == "POST":
-        pwd = request.form["password"]
-        conf = request.form["confirm"]
-
-        if pwd != conf:
-            flash("Hasła nie pasują", "error")
-            return redirect(url_for("reset_password", token=token))
-
-        user.set_password(pwd)
-        db.session.delete(entry)
-        db.session.commit()
-
-        flash("Hasło zmienione!", "success")
-        return redirect(url_for("login"))
-
-    return render_template("reset_form.html")
-
 
 # =====================================================
 # DASHBOARD
 # =====================================================
 
-@app.route('/dashboard')
+@app.route("/dashboard")
 @login_required
 def dashboard():
     recs = EmissionRecord.query.filter_by(user_id=current_user.id).order_by(
@@ -292,27 +343,32 @@ def dashboard():
     predicted = predict_annual_from_daily_sums(daily)
     compare_percent = (predicted / POLAND_AVG_CO2) * 100
 
-    records_json = [{
-        "id": r.id,
-        "category": r.category,
-        "value": r.value,
-        "note": r.note,
-        "created_at": r.created_at.isoformat(),
-    } for r in recs]
-
     return render_template(
-        "dashboard.html",
-        records=recs,
-        records_json=records_json,
-        totals=totals,
-        total_sum=sum(totals.values()) if totals else 0,
-        predicted_annual=predicted,
-        poland_avg=POLAND_AVG_CO2,
-        compare_percent=compare_percent,
-        last_7=totals_for_period(current_user.id, 7),
-        last_30=totals_for_period(current_user.id, 30),
-        last_365=totals_for_period(current_user.id, 365),
-    )
+    "dashboard.html",
+    records=recs,
+    SUBCATEGORY_LABELS=SUBCATEGORY_LABELS,
+    records_json=[
+        {
+            "id": r.id,
+            "category": r.category,
+            "subcategory": r.subcategory,
+            "raw_amount": r.raw_amount,
+            "amount_unit": r.amount_unit,
+            "value": r.value,
+            "note": r.note,
+            "created_at": r.created_at.isoformat()
+        }
+        for r in recs
+    ],
+    totals=totals,
+    total_sum=sum(totals.values()) if totals else 0,
+    predicted_annual=predicted,
+    poland_avg=POLAND_AVG_CO2,
+    compare_percent=compare_percent,
+    last_7=totals_for_period(current_user.id, 7),
+    last_30=totals_for_period(current_user.id, 30),
+    last_365=totals_for_period(current_user.id, 365),
+)
 
 
 # =====================================================
@@ -323,55 +379,70 @@ def dashboard():
 @login_required
 def add_emission():
     category = request.form["category"]
-    amount = float(request.form["amount"])
+    subcategory = request.form.get("subcategory") or None
+    # surowa ilość podana przez użytkownika
+    try:
+        raw_amount = float(request.form["amount"])
+    except (ValueError, TypeError):
+        flash("Nieprawidłowa ilość", "error")
+        return redirect(url_for("dashboard"))
+
+    unit = request.form.get("unit") or ""   # np. "km", "kg", "kWh"
     note = request.form.get("note", "")
 
-    co2 = compute_emission(category, amount)
+    co2 = compute_emission(category, subcategory, raw_amount)
 
-    if note:
-        note += f" (qty:{amount})"
-    else:
-        note = f"qty:{amount}"
-
+    # poprawne złożenie notatki
+  
     rec = EmissionRecord(
         user_id=current_user.id,
         category=category,
+        subcategory=subcategory,
+        raw_amount=raw_amount,
+        amount_unit=unit,
         value=co2,
         note=note
     )
+
     db.session.add(rec)
     db.session.commit()
 
     flash("Dodano emisję", "success")
     return redirect(url_for("dashboard"))
 
-
-@app.route('/emission/edit/<int:id>', methods=["GET","POST"])
+@app.route("/emission/edit/<int:id>", methods=["GET", "POST"])
 @login_required
 def edit_emission(id):
     rec = EmissionRecord.query.get_or_404(id)
+
     if rec.user_id != current_user.id:
         flash("Brak uprawnień", "error")
         return redirect(url_for("dashboard"))
 
     if request.method == "POST":
         category = request.form["category"]
-        amount = float(request.form["amount"])
+        subcategory = request.form.get("subcategory")
+        raw_amount = float(request.form["amount"])
+        unit = request.form.get("unit", "")
         note = request.form.get("note", "")
 
-        rec.value = compute_emission(category, amount)
+        co2 = compute_emission(category, subcategory, raw_amount)
+
         rec.category = category
-        rec.note = f"{note} (qty:{amount})"
+        rec.subcategory = subcategory
+        rec.raw_amount = raw_amount
+        rec.amount_unit = unit
+        rec.value = co2
+        rec.note = note 
 
         db.session.commit()
         flash("Zaktualizowano rekord", "success")
         return redirect(url_for("dashboard"))
 
-    raw_amount = rec.value / FACTORS.get(rec.category, 1)
-    return render_template("edit_emission.html", rec=rec, raw_amount=raw_amount)
+    return render_template("edit_emission.html", rec=rec)
 
 
-@app.route('/emission/delete/<int:id>', methods=["POST"])
+@app.route("/emission/delete/<int:id>", methods=["POST"])
 @login_required
 def delete_emission(id):
     rec = EmissionRecord.query.get_or_404(id)
@@ -395,14 +466,50 @@ def delete_emission(id):
 @login_required
 def simulate():
     data = request.json
-    category = data["category"]
-    change = float(data["change"])
 
-    delta = compute_emission(category, change)
+    category = data.get("category")
+    subcategory = data.get("subcategory")
+    amount_change = float(data.get("change", 0))  # np. km, kWh, kg
 
-    yearly = delta * (52 if category in ["transport", "food"] else 12)
+    # Jeśli brak czynności → błąd
+    if not category or not subcategory:
+        return jsonify({"error": "Brak kategorii lub podkategorii"}), 400
 
-    return jsonify({"change_kg_year": yearly})
+    # Emisja dla danej czynności
+    co2_per_unit = EMISSION_FACTORS.get(category, {}).get(subcategory)
+    if co2_per_unit is None:
+        return jsonify({"error": "Brak danych emisji"}), 400
+
+    # Różnica emisji
+    delta_daily = amount_change * co2_per_unit
+    delta_monthly = delta_daily * 30
+    delta_yearly = delta_daily * 365
+
+    # W tonach
+    delta_yearly_tons = delta_yearly / 1000
+
+    # Porównanie do realnych ekwiwalentów
+    trees = delta_yearly / 22  # średnio 1 drzewo pochłania ~22 kg CO2/rok
+    car_km = delta_yearly / 0.18  # średnio auto emituje 180 g CO₂/km
+
+    result = {
+        "category": category,
+        "subcategory": subcategory,
+        "amount_change": amount_change,
+
+        "daily": round(delta_daily, 3),
+        "monthly": round(delta_monthly, 3),
+        "yearly": round(delta_yearly, 3),
+        "yearly_tons": round(delta_yearly_tons, 3),
+
+        "equivalents": {
+            "trees_absorbed": round(trees, 1),
+            "car_km": round(car_km, 0)
+        }
+    }
+
+    return jsonify(result)
+
 
 
 # =====================================================
@@ -419,20 +526,21 @@ def generate_recommendations(totals):
         return [
             "Korzystaj częściej z komunikacji miejskiej.",
             "Łącz wiele celów w jedną trasę.",
-            "Rozważ rower na krótkie odcinki."
+            "Rozważ rower zamiast samochodu."
         ]
     if dominant == "energy":
         return [
             "Wymień żarówki na LED.",
-            "Wyłącz standby.",
+            "Wyłącz standby w urządzeniach.",
             "Obniż ogrzewanie o 1°C."
         ]
     if dominant == "food":
         return [
             "Dodaj dni bezmięsne.",
-            "Kupuj lokalnie.",
-            "Planuj posiłki."
+            "Kupuj lokalnie i sezonowo.",
+            "Ogranicz czerwone mięso."
         ]
+
     return [
         "Kupuj produkty wielorazowe.",
         "Naprawiaj zamiast wyrzucać.",
@@ -450,91 +558,171 @@ def tips():
 
     return render_template("tips.html", tips=generate_recommendations(totals))
 
+
+
+# =====================================================
+# INFO PAGE
+# =====================================================
+
 @app.route("/info")
 def info():
     eco_facts = [
         {
-            "title": "Średnia emisja CO₂ na osobę (Europa)",
+            "title": "Średnia emisja CO₂ w Europie",
             "value": "6,4 t/rok",
-            "desc": "W Europie przeciętna osoba generuje około 6,4 tony CO₂ rocznie."
         },
         {
             "title": "Średnia emisja CO₂ w Polsce",
             "value": "8,0 t/rok",
-            "desc": "Polska ma jedną z najwyższych emisji CO₂ per capita w UE."
         },
         {
             "title": "Globalne emisje CO₂",
             "value": "36,8 gigaton/rok",
-            "desc": "Cały świat generuje prawie 37 miliardów ton CO₂ rocznie."
-        },
-        {
-            "title": "Transport",
-            "value": "24% globalnych emisji",
-            "desc": "Pojazdy spalinowe stanowią niemal 1/4 wszystkich emisji."
-        },
-        {
-            "title": "Energia",
-            "value": "40% globalnych emisji",
-            "desc": "Produkcja prądu i ogrzewanie to największe źródło emisji CO₂."
-        },
-        {
-            "title": "Rolnictwo i żywność",
-            "value": "14% globalnych emisji",
-            "desc": "Hodowla zwierząt i produkcja żywności znacząco wpływa na klimat."
         }
     ]
-
     return render_template("info.html", facts=eco_facts)
+
 
 # =====================================================
 # EXPORT CSV & PDF
 # =====================================================
 
-@app.route('/export/csv')
+@app.route("/export/csv")
 @login_required
 def export_csv():
     recs = EmissionRecord.query.filter_by(user_id=current_user.id).all()
 
-    rows = [["data","kategoria","co2","notatka"]]
+    rows = [["data", "kategoria", "podkategoria", "ilość", "jednostka", "co2", "notatka"]]
     for r in recs:
         rows.append([
             r.created_at.strftime("%Y-%m-%d %H:%M"),
             r.category,
+            r.subcategory or "",
+            r.raw_amount or "",
+            r.amount_unit or "",
             r.value,
-            r.note
+            r.note or ""
         ])
 
-    out = make_response("\n".join(",".join(map(str, row)) for row in rows))
+    content = "\n".join(",".join(map(str, row)) for row in rows)
+
+    out = make_response(content)
     out.headers["Content-Disposition"] = "attachment; filename=emisje.csv"
     out.headers["Content-Type"] = "text/csv"
     return out
 
+def ascii_only(s):
+    if not s:
+        return ""
+    return s.encode("ascii", errors="ignore").decode("ascii")
 
-@app.route('/export/pdf')
+
+# zamień istniejącą funkcję export_pdf() tym kodem
+@app.route("/export/pdf")
 @login_required
 def export_pdf():
-    buf = io.BytesIO()
-    pdf = canvas.Canvas(buf, pagesize=A4)
-    pdf.setFont("Helvetica-Bold", 16)
-    pdf.drawString(50,800,"Raport emisji CO₂")
-    pdf.setFont("Helvetica", 12)
-    y=770
+    try:
+        from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+        from reportlab.lib.styles import getSampleStyleSheet
+        from reportlab.lib.pagesizes import A4
+        from reportlab.pdfbase import pdfmetrics
+        from reportlab.pdfbase.ttfonts import TTFont
 
-    recs = EmissionRecord.query.filter_by(user_id=current_user.id).all()
+        def ascii_only(s):
+            if not s:
+                return ""
+            return s.encode("ascii", errors="ignore").decode("ascii")
 
-    for r in recs:
-        pdf.drawString(50,y, f"{r.created_at} | {r.category} | {r.value} | {r.note}")
-        y -= 20
-        if y < 40:
-            pdf.showPage()
-            pdf.setFont("Helvetica", 12)
-            y = 800
+        # próba znalezienia DejaVuSans.ttf w kilku miejscach
+        font_candidates = [
+            os.path.join(os.path.dirname(__file__), "DejaVuSans.ttf"),
+            os.path.join(os.path.dirname(__file__), "static", "fonts", "DejaVuSans.ttf"),
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+            "/usr/local/share/fonts/DejaVuSans.ttf"
+        ]
+        font_path = None
+        for p in font_candidates:
+            if p and os.path.isfile(p):
+                font_path = p
+                break
 
-    pdf.save()
-    buf.seek(0)
+        use_unicode_font = False
+        if font_path:
+            try:
+                pdfmetrics.registerFont(TTFont("DejaVu", font_path))
+                use_unicode_font = True
+            except Exception as fe:
+                logging.exception("export_pdf: nie udalo sie zarejestrowac DejaVu: %s", fe)
+                use_unicode_font = False
 
-    return send_file(buf, as_attachment=True, download_name="emisje.pdf")
+        # przygotowanie stylow
+        styles = getSampleStyleSheet()
+        normal_style = styles["Normal"]
+        if use_unicode_font:
+            # override fontName w stylu na zarejestrowana czcionke
+            normal_style = styles["Normal"].clone('normal_dejavu')
+            normal_style.fontName = "DejaVu"
+
+        # pobierz rekordy
+        recs = EmissionRecord.query.filter_by(user_id=current_user.id).order_by(EmissionRecord.created_at.asc()).all()
+
+        # przygotuj dokument w pamieci
+        buf = io.BytesIO()
+        doc = SimpleDocTemplate(buf, pagesize=A4, rightMargin=30,leftMargin=30, topMargin=30,bottomMargin=30)
+        story = []
+
+        if not recs:
+            story.append(Paragraph("Brak rekordow emisji.", normal_style))
+        else:
+            # naglowek
+            story.append(Paragraph("Raport emisji CO2", normal_style))
+            story.append(Spacer(1, 12))
+
+            for r in recs:
+                created = r.created_at.strftime('%Y-%m-%d %H:%M')
+                cat = r.category or ""
+                sub = r.subcategory or ""
+                amt = str(r.raw_amount) if r.raw_amount is not None else ""
+                unit = r.amount_unit or ""
+                val = str(round(r.value, 3))
+                note = r.note or ""
+
+                if not use_unicode_font:
+                    # jesli brak czcionki unicode - oczyszczamy pola
+                    created = ascii_only(created)
+                    cat = ascii_only(cat)
+                    sub = ascii_only(sub)
+                    amt = ascii_only(amt)
+                    unit = ascii_only(unit)
+                    val = ascii_only(val)
+                    note = ascii_only(note)
+
+                line = f"{created} — {cat}/{sub} — {amt} {unit} — {val} kg CO2"
+                if note:
+                    line += f" — {note}"
+
+                # unikamy bardzo dlugich paragrafow (Platypus lamie tekst)
+                story.append(Paragraph(line, normal_style))
+                story.append(Spacer(1, 6))
+
+        # zbuduj dokument
+        doc.build(story)
+
+        buf.seek(0)
+        pdf_bytes = buf.read()
+
+        # Zwracamy surowe bytes jako odpowiedz - unikamy send_file wrapperow
+        from flask import Response
+        resp = Response(pdf_bytes, mimetype="application/pdf")
+        resp.headers["Content-Disposition"] = "attachment; filename=emisje.pdf"
+        return resp
+
+    except Exception as e:
+        logging.exception("export_pdf: blad podczas generowania PDF: %s", e)
+        # zapisz szczegoly do error.log i poinformuj usera
+        flash("Wystapil blad podczas generowania PDF. Sprawdz logi serwera.", "error")
+        return redirect(url_for("dashboard"))
+
 
 
 # =====================================================
@@ -563,8 +751,10 @@ def api_list():
     return jsonify([{
         "id": r.id,
         "category": r.category,
+        "subcategory": r.subcategory,
+        "raw_amount": r.raw_amount,
+        "unit": r.amount_unit,
         "value": r.value,
-        "note": r.note,
         "created_at": r.created_at.isoformat()
     } for r in recs])
 
@@ -576,16 +766,21 @@ def api_create():
         return jsonify({"error": "unauthorized"}), 401
 
     d = request.json
-    category = d["category"]
-    amount = float(d["amount"])
+    category = d.get("category")
+    subcategory = d.get("subcategory")
+    amount = float(d.get("amount", 0))
+    unit = d.get("unit", "")
 
-    co2 = compute_emission(category, amount)
+    co2 = compute_emission(category, subcategory, amount)
 
     rec = EmissionRecord(
         user_id=u.id,
         category=category,
+        subcategory=subcategory,
+        raw_amount=amount,
+        amount_unit=unit,
         value=co2,
-        note=f"qty:{amount}"
+        note=f"qty:{amount}{unit}"
     )
 
     db.session.add(rec)
@@ -605,15 +800,20 @@ def api_update(id):
         return jsonify({"error": "forbidden"}), 403
 
     d = request.json
-    cat = d.get("category", rec.category)
-    amount = d.get("amount")
 
-    if amount is not None:
-        amount = float(amount)
-        rec.value = compute_emission(cat, amount)
-        rec.note = f"qty:{amount}"
+    category = d.get("category", rec.category)
+    subcat = d.get("subcategory", rec.subcategory)
+    amount = float(d.get("amount", rec.raw_amount))
+    unit = d.get("unit", rec.amount_unit)
 
-    rec.category = cat
+    co2 = compute_emission(category, subcat, amount)
+
+    rec.category = category
+    rec.subcategory = subcat
+    rec.raw_amount = amount
+    rec.amount_unit = unit
+    rec.value = co2
+
     db.session.commit()
 
     return jsonify({"status": "updated"})
@@ -638,8 +838,12 @@ def api_delete(id):
 @app.route("/api/calc", methods=["POST"])
 def api_calc():
     d = request.json
+    category = d.get("category")
+    subcat = d.get("subcategory")
+    amount = float(d.get("amount", 0))
+
     return jsonify({
-        "co2": compute_emission(d["category"], float(d["amount"]))
+        "co2": compute_emission(category, subcat, amount)
     })
 
 
@@ -650,6 +854,7 @@ def api_category_stats():
         return jsonify({"error": "unauthorized"}), 401
 
     recs = EmissionRecord.query.filter_by(user_id=u.id).all()
+
     sums = {}
     for r in recs:
         sums[r.category] = sums.get(r.category, 0) + r.value
@@ -664,6 +869,7 @@ def api_predict():
         return jsonify({"error": "unauthorized"}), 401
 
     daily = daily_sums_for_user(u.id)
+
     return jsonify({
         "daily": daily,
         "predicted_annual": predict_annual_from_daily_sums(daily)
@@ -671,7 +877,7 @@ def api_predict():
 
 
 # =====================================================
-# OPENAPI + SWAGGER UI
+# SWAGGER
 # =====================================================
 
 @app.route("/api/openapi.json")

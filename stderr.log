@@ -1,0 +1,1577 @@
+2025-12-07 15:33:47,618 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 15:33:47,618 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 15:33:47,925 [INFO] db.create_all OK
+2025-12-07 15:33:47,925 [INFO] Loaded app.py successfully.
+2025-12-07 15:33:47,925 [INFO] WSGI Application ready.
+2025-12-07 15:33:48,009 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:33:48,868 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:33:51,858 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:33:54,784 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:33:56,863 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:33:58,035 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:33:59,734 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:35:50,824 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 15:35:50,824 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 15:35:51,133 [INFO] db.create_all OK
+2025-12-07 15:35:51,134 [INFO] Loaded app.py successfully.
+2025-12-07 15:35:51,134 [INFO] WSGI Application ready.
+2025-12-07 15:35:51,257 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:35:53,515 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:36:47,243 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:36:50,055 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:36:51,438 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:38:35,800 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:38:41,789 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:38:41,932 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 15:38:41,932 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 15:38:42,227 [INFO] db.create_all OK
+2025-12-07 15:38:42,227 [INFO] Loaded app.py successfully.
+2025-12-07 15:38:42,227 [INFO] WSGI Application ready.
+2025-12-07 15:38:44,427 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:38:44,446 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:38:49,272 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:38:49,304 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:38:51,182 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:39:25,871 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:39:25,906 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:41:23,189 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 15:41:23,189 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 15:41:23,429 [INFO] db.create_all OK
+2025-12-07 15:41:23,429 [INFO] Loaded app.py successfully.
+2025-12-07 15:41:23,429 [INFO] WSGI Application ready.
+2025-12-07 15:41:23,474 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:41:23,534 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:41:27,108 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:41:27,130 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:41:28,668 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:41:28,685 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:44:02,120 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 15:44:02,120 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 15:44:02,431 [INFO] db.create_all OK
+2025-12-07 15:44:02,431 [INFO] Loaded app.py successfully.
+2025-12-07 15:44:02,431 [INFO] WSGI Application ready.
+2025-12-07 15:44:02,478 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:44:02,504 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:44:05,400 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:44:05,420 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:44:06,044 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:44:06,064 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:44:07,401 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:44:07,419 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:44:26,584 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:44:26,609 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:44:32,746 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:44:32,769 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:45:17,264 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:45:17,286 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:45:17,357 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 15:45:17,357 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 15:45:17,633 [INFO] db.create_all OK
+2025-12-07 15:45:17,633 [INFO] Loaded app.py successfully.
+2025-12-07 15:45:17,633 [INFO] WSGI Application ready.
+2025-12-07 15:45:18,043 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:45:18,066 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:45:18,585 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:45:18,608 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:45:21,433 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:45:21,453 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:45:22,541 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:45:22,559 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:45:22,923 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:45:22,947 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:45:23,359 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:45:23,375 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:46:53,948 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 15:46:53,948 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 15:46:54,229 [INFO] db.create_all OK
+2025-12-07 15:46:54,230 [INFO] Loaded app.py successfully.
+2025-12-07 15:46:54,230 [INFO] WSGI Application ready.
+2025-12-07 15:46:54,276 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:46:54,304 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:46:57,579 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:46:57,598 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:46:58,780 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:46:58,801 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:46:59,211 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:46:59,231 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:52:30,391 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:52:42,792 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 15:52:42,792 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 15:52:43,030 [INFO] db.create_all OK
+2025-12-07 15:52:43,030 [INFO] Loaded app.py successfully.
+2025-12-07 15:52:43,030 [INFO] WSGI Application ready.
+2025-12-07 15:52:43,190 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:58:02,399 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 15:58:02,399 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 15:58:02,726 [INFO] db.create_all OK
+2025-12-07 15:58:02,726 [INFO] Loaded app.py successfully.
+2025-12-07 15:58:02,726 [INFO] WSGI Application ready.
+2025-12-07 15:58:02,770 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:58:02,798 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:58:13,486 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 15:58:13,508 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 16:00:39,851 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 16:00:39,895 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 16:02:01,962 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 16:02:01,981 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 16:02:02,431 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 16:02:02,451 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 16:02:02,848 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 16:02:02,867 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 16:02:04,922 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 16:02:04,943 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 16:02:11,145 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 16:02:11,175 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 16:02:11,304 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 16:02:11,304 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 16:02:11,628 [INFO] db.create_all OK
+2025-12-07 16:02:11,628 [INFO] Loaded app.py successfully.
+2025-12-07 16:02:11,628 [INFO] WSGI Application ready.
+2025-12-07 16:02:12,126 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 257, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 305, in send_static_file
+    return send_from_directory(
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/helpers.py", line 554, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/utils.py", line 568, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 16:02:12,153 [ERROR] Unhandled exception:
+Traceback (most recent call last):
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 841, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/app.py", line 450, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/home/host523765/virtualenv/domains/ecotrack.com.pl/eco_app/app/3.10/lib/python3.10/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-12-07 16:05:44,119 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 16:05:44,119 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 16:05:44,426 [INFO] db.create_all OK
+2025-12-07 16:05:44,426 [INFO] Loaded app.py successfully.
+2025-12-07 16:05:44,426 [INFO] WSGI Application ready.
+2025-12-07 16:10:46,395 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 16:10:46,395 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 16:10:46,629 [INFO] db.create_all OK
+2025-12-07 16:10:46,630 [INFO] Loaded app.py successfully.
+2025-12-07 16:10:46,630 [INFO] WSGI Application ready.
+2025-12-07 16:11:54,584 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 16:11:54,584 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 16:11:54,840 [INFO] db.create_all OK
+2025-12-07 16:11:54,840 [INFO] Loaded app.py successfully.
+2025-12-07 16:11:54,840 [INFO] WSGI Application ready.
+2025-12-07 16:14:46,350 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 16:14:46,351 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 16:14:46,628 [INFO] db.create_all OK
+2025-12-07 16:14:46,629 [INFO] Loaded app.py successfully.
+2025-12-07 16:14:46,629 [INFO] WSGI Application ready.
+2025-12-07 16:16:22,639 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 16:16:22,639 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 16:16:22,929 [INFO] db.create_all OK
+2025-12-07 16:16:22,929 [INFO] Loaded app.py successfully.
+2025-12-07 16:16:22,929 [INFO] WSGI Application ready.
+2025-12-07 16:24:56,320 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 16:24:56,320 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 16:24:56,630 [INFO] db.create_all OK
+2025-12-07 16:24:56,630 [INFO] Loaded app.py successfully.
+2025-12-07 16:24:56,630 [INFO] WSGI Application ready.
+2025-12-07 16:24:59,513 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 16:24:59,513 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 16:24:59,826 [INFO] db.create_all OK
+2025-12-07 16:24:59,826 [INFO] Loaded app.py successfully.
+2025-12-07 16:24:59,826 [INFO] WSGI Application ready.
+2025-12-07 23:55:39,459 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-07 23:55:39,460 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-07 23:55:39,859 [INFO] db.create_all OK
+2025-12-07 23:55:39,859 [INFO] Loaded app.py successfully.
+2025-12-07 23:55:39,859 [INFO] WSGI Application ready.
+2025-12-08 03:32:44,452 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-08 03:32:44,453 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-08 03:32:44,961 [INFO] db.create_all OK
+2025-12-08 03:32:44,962 [INFO] Loaded app.py successfully.
+2025-12-08 03:32:44,962 [INFO] WSGI Application ready.
+2025-12-08 04:20:33,262 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-08 04:20:33,262 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-08 04:20:33,648 [INFO] db.create_all OK
+2025-12-08 04:20:33,648 [INFO] Loaded app.py successfully.
+2025-12-08 04:20:33,648 [INFO] WSGI Application ready.
+2025-12-08 08:02:22,582 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-08 08:02:22,582 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-08 08:02:22,952 [INFO] db.create_all OK
+2025-12-08 08:02:22,952 [INFO] Loaded app.py successfully.
+2025-12-08 08:02:22,952 [INFO] WSGI Application ready.
+2025-12-08 13:41:52,211 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-08 13:41:52,211 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-08 13:41:52,653 [INFO] db.create_all OK
+2025-12-08 13:41:52,653 [INFO] Loaded app.py successfully.
+2025-12-08 13:41:52,653 [INFO] WSGI Application ready.
+2025-12-08 14:43:57,336 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-08 14:43:57,336 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-08 14:43:57,749 [INFO] db.create_all OK
+2025-12-08 14:43:57,749 [INFO] Loaded app.py successfully.
+2025-12-08 14:43:57,749 [INFO] WSGI Application ready.
+2025-12-08 18:07:43,934 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-08 18:07:43,935 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-08 18:07:44,359 [INFO] db.create_all OK
+2025-12-08 18:07:44,359 [INFO] Loaded app.py successfully.
+2025-12-08 18:07:44,359 [INFO] WSGI Application ready.
+2025-12-08 20:35:08,674 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-08 20:35:08,674 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-08 20:35:09,053 [INFO] db.create_all OK
+2025-12-08 20:35:09,054 [INFO] Loaded app.py successfully.
+2025-12-08 20:35:09,054 [INFO] WSGI Application ready.
+2025-12-08 22:53:19,544 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-08 22:53:19,544 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-08 22:53:19,949 [INFO] db.create_all OK
+2025-12-08 22:53:19,949 [INFO] Loaded app.py successfully.
+2025-12-08 22:53:19,949 [INFO] WSGI Application ready.
+2025-12-08 22:53:27,650 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-08 22:53:27,650 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-08 22:53:27,933 [INFO] db.create_all OK
+2025-12-08 22:53:27,933 [INFO] Loaded app.py successfully.
+2025-12-08 22:53:27,933 [INFO] WSGI Application ready.
+2025-12-09 01:53:21,759 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-09 01:53:21,760 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-09 01:53:22,162 [INFO] db.create_all OK
+2025-12-09 01:53:22,162 [INFO] Loaded app.py successfully.
+2025-12-09 01:53:22,162 [INFO] WSGI Application ready.
+2025-12-09 09:03:17,172 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-09 09:03:17,173 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-09 09:03:17,561 [INFO] db.create_all OK
+2025-12-09 09:03:17,561 [INFO] Loaded app.py successfully.
+2025-12-09 09:03:17,561 [INFO] WSGI Application ready.
+2025-12-09 09:04:06,431 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-09 09:04:06,431 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-09 09:04:06,729 [INFO] db.create_all OK
+2025-12-09 09:04:06,729 [INFO] Loaded app.py successfully.
+2025-12-09 09:04:06,729 [INFO] WSGI Application ready.
+2025-12-09 12:07:24,991 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-09 12:07:24,991 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-09 12:07:25,448 [INFO] db.create_all OK
+2025-12-09 12:07:25,448 [INFO] Loaded app.py successfully.
+2025-12-09 12:07:25,448 [INFO] WSGI Application ready.
+2025-12-09 14:27:43,722 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-09 14:27:43,722 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-09 14:27:44,157 [INFO] db.create_all OK
+2025-12-09 14:27:44,157 [INFO] Loaded app.py successfully.
+2025-12-09 14:27:44,157 [INFO] WSGI Application ready.
+2025-12-09 16:22:45,328 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-09 16:22:45,329 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-09 16:22:45,759 [INFO] db.create_all OK
+2025-12-09 16:22:45,759 [INFO] Loaded app.py successfully.
+2025-12-09 16:22:45,759 [INFO] WSGI Application ready.
+2025-12-09 21:32:43,806 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-09 21:32:43,806 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-09 21:32:44,252 [INFO] db.create_all OK
+2025-12-09 21:32:44,253 [INFO] Loaded app.py successfully.
+2025-12-09 21:32:44,253 [INFO] WSGI Application ready.
+2025-12-09 22:01:32,320 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-09 22:01:32,320 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-09 22:01:32,628 [INFO] db.create_all OK
+2025-12-09 22:01:32,628 [INFO] Loaded app.py successfully.
+2025-12-09 22:01:32,628 [INFO] WSGI Application ready.
+2025-12-10 01:19:02,482 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-10 01:19:02,483 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-10 01:19:02,857 [INFO] db.create_all OK
+2025-12-10 01:19:02,857 [INFO] Loaded app.py successfully.
+2025-12-10 01:19:02,857 [INFO] WSGI Application ready.
+2025-12-10 09:01:05,116 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-10 09:01:05,116 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-10 09:01:05,558 [INFO] db.create_all OK
+2025-12-10 09:01:05,558 [INFO] Loaded app.py successfully.
+2025-12-10 09:01:05,558 [INFO] WSGI Application ready.
+2025-12-10 09:01:06,847 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-10 09:01:06,847 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-10 09:01:07,131 [INFO] db.create_all OK
+2025-12-10 09:01:07,131 [INFO] Loaded app.py successfully.
+2025-12-10 09:01:07,131 [INFO] WSGI Application ready.
+2025-12-10 11:37:12,876 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-10 11:37:12,877 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-10 11:37:13,255 [INFO] db.create_all OK
+2025-12-10 11:37:13,255 [INFO] Loaded app.py successfully.
+2025-12-10 11:37:13,255 [INFO] WSGI Application ready.
+2025-12-10 14:54:57,142 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-10 14:54:57,143 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-10 14:54:57,559 [INFO] db.create_all OK
+2025-12-10 14:54:57,559 [INFO] Loaded app.py successfully.
+2025-12-10 14:54:57,559 [INFO] WSGI Application ready.
+2025-12-10 16:16:25,958 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-10 16:16:25,958 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-10 16:16:26,241 [INFO] db.create_all OK
+2025-12-10 16:16:26,241 [INFO] Loaded app.py successfully.
+2025-12-10 16:16:26,241 [INFO] WSGI Application ready.
+2025-12-10 18:20:22,864 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-10 18:20:22,864 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-10 18:20:23,139 [INFO] db.create_all OK
+2025-12-10 18:20:23,139 [INFO] Loaded app.py successfully.
+2025-12-10 18:20:23,139 [INFO] WSGI Application ready.
+2025-12-10 19:05:11,745 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-10 19:05:11,745 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-10 19:05:12,040 [INFO] db.create_all OK
+2025-12-10 19:05:12,040 [INFO] Loaded app.py successfully.
+2025-12-10 19:05:12,040 [INFO] WSGI Application ready.
+2025-12-10 22:32:49,418 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-10 22:32:49,418 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-10 22:32:49,551 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-10 22:32:49,551 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-10 22:32:49,728 [INFO] db.create_all OK
+2025-12-10 22:32:49,728 [INFO] Loaded app.py successfully.
+2025-12-10 22:32:49,728 [INFO] WSGI Application ready.
+2025-12-10 22:32:49,927 [INFO] db.create_all OK
+2025-12-10 22:32:49,927 [INFO] Loaded app.py successfully.
+2025-12-10 22:32:49,927 [INFO] WSGI Application ready.
+2025-12-11 10:07:16,077 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-11 10:07:16,077 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-11 10:07:16,463 [INFO] db.create_all OK
+2025-12-11 10:07:16,463 [INFO] Loaded app.py successfully.
+2025-12-11 10:07:16,463 [INFO] WSGI Application ready.
+2025-12-11 13:26:27,318 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-11 13:26:27,318 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-11 13:26:27,752 [INFO] db.create_all OK
+2025-12-11 13:26:27,752 [INFO] Loaded app.py successfully.
+2025-12-11 13:26:27,752 [INFO] WSGI Application ready.
+2025-12-11 13:38:43,204 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-11 13:38:43,204 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-11 13:38:43,499 [INFO] db.create_all OK
+2025-12-11 13:38:43,499 [INFO] Loaded app.py successfully.
+2025-12-11 13:38:43,499 [INFO] WSGI Application ready.
+2025-12-11 17:45:07,109 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-11 17:45:07,109 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-11 17:45:07,555 [INFO] db.create_all OK
+2025-12-11 17:45:07,555 [INFO] Loaded app.py successfully.
+2025-12-11 17:45:07,555 [INFO] WSGI Application ready.
+2025-12-11 19:18:21,211 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-11 19:18:21,211 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-11 19:18:21,527 [INFO] db.create_all OK
+2025-12-11 19:18:21,528 [INFO] Loaded app.py successfully.
+2025-12-11 19:18:21,528 [INFO] WSGI Application ready.
+2025-12-12 01:27:11,782 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-12 01:27:11,783 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-12 01:27:12,222 [INFO] db.create_all OK
+2025-12-12 01:27:12,222 [INFO] Loaded app.py successfully.
+2025-12-12 01:27:12,222 [INFO] WSGI Application ready.
+2025-12-12 12:09:27,403 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-12 12:09:27,404 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-12 12:09:27,858 [INFO] db.create_all OK
+2025-12-12 12:09:27,859 [INFO] Loaded app.py successfully.
+2025-12-12 12:09:27,859 [INFO] WSGI Application ready.
+2025-12-12 13:12:58,800 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-12 13:12:58,800 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-12 13:12:59,150 [INFO] db.create_all OK
+2025-12-12 13:12:59,150 [INFO] Loaded app.py successfully.
+2025-12-12 13:12:59,150 [INFO] WSGI Application ready.
+2025-12-12 15:37:44,359 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-12 15:37:44,359 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-12 15:37:44,624 [INFO] db.create_all OK
+2025-12-12 15:37:44,624 [INFO] Loaded app.py successfully.
+2025-12-12 15:37:44,624 [INFO] WSGI Application ready.
+2025-12-12 22:31:15,369 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-12 22:31:15,370 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-12 22:31:15,760 [INFO] db.create_all OK
+2025-12-12 22:31:15,760 [INFO] Loaded app.py successfully.
+2025-12-12 22:31:15,760 [INFO] WSGI Application ready.
+2025-12-12 22:31:21,046 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-12 22:31:21,046 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-12 22:31:21,330 [INFO] db.create_all OK
+2025-12-12 22:31:21,330 [INFO] Loaded app.py successfully.
+2025-12-12 22:31:21,330 [INFO] WSGI Application ready.
+2025-12-13 10:38:01,573 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-13 10:38:01,574 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-13 10:38:01,959 [INFO] db.create_all OK
+2025-12-13 10:38:01,959 [INFO] Loaded app.py successfully.
+2025-12-13 10:38:01,959 [INFO] WSGI Application ready.
+2025-12-13 12:48:57,753 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-13 12:48:57,753 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-13 12:48:58,032 [INFO] db.create_all OK
+2025-12-13 12:48:58,032 [INFO] Loaded app.py successfully.
+2025-12-13 12:48:58,032 [INFO] WSGI Application ready.
+2025-12-13 12:49:00,858 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-13 12:49:00,858 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-13 12:49:01,124 [INFO] db.create_all OK
+2025-12-13 12:49:01,124 [INFO] Loaded app.py successfully.
+2025-12-13 12:49:01,124 [INFO] WSGI Application ready.
+2025-12-13 18:25:54,390 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-13 18:25:54,390 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-13 18:25:54,754 [INFO] db.create_all OK
+2025-12-13 18:25:54,754 [INFO] Loaded app.py successfully.
+2025-12-13 18:25:54,754 [INFO] WSGI Application ready.
+2025-12-14 00:34:18,237 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-14 00:34:18,237 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-14 00:34:18,656 [INFO] db.create_all OK
+2025-12-14 00:34:18,656 [INFO] Loaded app.py successfully.
+2025-12-14 00:34:18,656 [INFO] WSGI Application ready.
+2025-12-14 09:45:55,661 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-14 09:45:55,661 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-14 09:45:56,057 [INFO] db.create_all OK
+2025-12-14 09:45:56,057 [INFO] Loaded app.py successfully.
+2025-12-14 09:45:56,057 [INFO] WSGI Application ready.
+2025-12-14 09:46:06,168 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-14 09:46:06,168 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-14 09:46:06,428 [INFO] db.create_all OK
+2025-12-14 09:46:06,428 [INFO] Loaded app.py successfully.
+2025-12-14 09:46:06,428 [INFO] WSGI Application ready.
+2025-12-14 14:48:58,961 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-14 14:48:58,962 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-14 14:48:59,351 [INFO] db.create_all OK
+2025-12-14 14:48:59,351 [INFO] Loaded app.py successfully.
+2025-12-14 14:48:59,351 [INFO] WSGI Application ready.
+2025-12-14 18:33:29,507 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-14 18:33:29,508 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-14 18:33:29,849 [INFO] db.create_all OK
+2025-12-14 18:33:29,849 [INFO] Loaded app.py successfully.
+2025-12-14 18:33:29,849 [INFO] WSGI Application ready.
+2025-12-14 22:20:55,965 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-14 22:20:55,965 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-14 22:20:56,350 [INFO] db.create_all OK
+2025-12-14 22:20:56,350 [INFO] Loaded app.py successfully.
+2025-12-14 22:20:56,350 [INFO] WSGI Application ready.
+2025-12-15 06:16:04,761 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-15 06:16:04,761 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-15 06:16:05,159 [INFO] db.create_all OK
+2025-12-15 06:16:05,159 [INFO] Loaded app.py successfully.
+2025-12-15 06:16:05,159 [INFO] WSGI Application ready.
+2025-12-15 08:25:05,454 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-15 08:25:05,454 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-15 08:25:05,728 [INFO] db.create_all OK
+2025-12-15 08:25:05,728 [INFO] Loaded app.py successfully.
+2025-12-15 08:25:05,728 [INFO] WSGI Application ready.
+2025-12-15 12:07:48,084 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-15 12:07:48,085 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-15 12:07:48,452 [INFO] db.create_all OK
+2025-12-15 12:07:48,452 [INFO] Loaded app.py successfully.
+2025-12-15 12:07:48,452 [INFO] WSGI Application ready.
+2025-12-15 12:35:14,677 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-15 12:35:14,678 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-15 12:35:14,936 [INFO] db.create_all OK
+2025-12-15 12:35:14,936 [INFO] Loaded app.py successfully.
+2025-12-15 12:35:14,936 [INFO] WSGI Application ready.
+2025-12-15 15:00:39,960 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-15 15:00:39,961 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-15 15:00:40,355 [INFO] db.create_all OK
+2025-12-15 15:00:40,355 [INFO] Loaded app.py successfully.
+2025-12-15 15:00:40,355 [INFO] WSGI Application ready.
+2025-12-15 15:00:40,881 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-15 15:00:40,881 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-15 15:00:41,136 [INFO] db.create_all OK
+2025-12-15 15:00:41,136 [INFO] Loaded app.py successfully.
+2025-12-15 15:00:41,136 [INFO] WSGI Application ready.
+2025-12-15 19:00:12,917 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-15 19:00:12,918 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-15 19:00:13,348 [INFO] db.create_all OK
+2025-12-15 19:00:13,348 [INFO] Loaded app.py successfully.
+2025-12-15 19:00:13,348 [INFO] WSGI Application ready.
+2025-12-15 19:30:27,268 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-15 19:30:27,268 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-15 19:30:27,528 [INFO] db.create_all OK
+2025-12-15 19:30:27,528 [INFO] Loaded app.py successfully.
+2025-12-15 19:30:27,528 [INFO] WSGI Application ready.
+2025-12-16 11:29:40,722 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-16 11:29:40,722 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-16 11:29:41,159 [INFO] db.create_all OK
+2025-12-16 11:29:41,159 [INFO] Loaded app.py successfully.
+2025-12-16 11:29:41,159 [INFO] WSGI Application ready.
+2025-12-16 13:30:04,963 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-16 13:30:04,964 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-16 13:30:05,229 [INFO] db.create_all OK
+2025-12-16 13:30:05,229 [INFO] Loaded app.py successfully.
+2025-12-16 13:30:05,229 [INFO] WSGI Application ready.
+2025-12-16 13:56:07,421 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-16 13:56:07,421 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-16 13:56:07,731 [INFO] db.create_all OK
+2025-12-16 13:56:07,731 [INFO] Loaded app.py successfully.
+2025-12-16 13:56:07,731 [INFO] WSGI Application ready.
+2025-12-16 16:15:07,293 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-16 16:15:07,293 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-16 16:15:07,530 [INFO] db.create_all OK
+2025-12-16 16:15:07,530 [INFO] Loaded app.py successfully.
+2025-12-16 16:15:07,530 [INFO] WSGI Application ready.
+2025-12-16 19:02:32,786 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-16 19:02:32,786 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-16 19:02:33,153 [INFO] db.create_all OK
+2025-12-16 19:02:33,153 [INFO] Loaded app.py successfully.
+2025-12-16 19:02:33,153 [INFO] WSGI Application ready.
+2025-12-17 01:33:53,465 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-17 01:33:53,465 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-17 01:33:53,862 [INFO] db.create_all OK
+2025-12-17 01:33:53,863 [INFO] Loaded app.py successfully.
+2025-12-17 01:33:53,863 [INFO] WSGI Application ready.
+2025-12-17 06:55:34,930 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-17 06:55:34,931 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-17 06:55:35,355 [INFO] db.create_all OK
+2025-12-17 06:55:35,355 [INFO] Loaded app.py successfully.
+2025-12-17 06:55:35,355 [INFO] WSGI Application ready.
+2025-12-17 09:33:40,150 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-17 09:33:40,150 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-17 09:33:40,554 [INFO] db.create_all OK
+2025-12-17 09:33:40,554 [INFO] Loaded app.py successfully.
+2025-12-17 09:33:40,554 [INFO] WSGI Application ready.
+2025-12-17 09:33:48,169 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-17 09:33:48,169 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-17 09:33:48,430 [INFO] db.create_all OK
+2025-12-17 09:33:48,430 [INFO] Loaded app.py successfully.
+2025-12-17 09:33:48,430 [INFO] WSGI Application ready.
+2025-12-17 13:10:04,459 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-17 13:10:04,460 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-17 13:10:04,865 [INFO] db.create_all OK
+2025-12-17 13:10:04,865 [INFO] Loaded app.py successfully.
+2025-12-17 13:10:04,865 [INFO] WSGI Application ready.
+2025-12-17 13:10:05,840 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-17 13:10:05,840 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-17 13:10:06,127 [INFO] db.create_all OK
+2025-12-17 13:10:06,127 [INFO] Loaded app.py successfully.
+2025-12-17 13:10:06,127 [INFO] WSGI Application ready.
+2025-12-17 18:10:17,165 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-17 18:10:17,165 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-17 18:10:17,548 [INFO] db.create_all OK
+2025-12-17 18:10:17,548 [INFO] Loaded app.py successfully.
+2025-12-17 18:10:17,548 [INFO] WSGI Application ready.
+2025-12-17 20:00:19,208 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-17 20:00:19,208 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-17 20:00:19,523 [INFO] db.create_all OK
+2025-12-17 20:00:19,523 [INFO] Loaded app.py successfully.
+2025-12-17 20:00:19,523 [INFO] WSGI Application ready.
+2025-12-17 23:51:46,471 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-17 23:51:46,471 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-17 23:51:46,858 [INFO] db.create_all OK
+2025-12-17 23:51:46,858 [INFO] Loaded app.py successfully.
+2025-12-17 23:51:46,858 [INFO] WSGI Application ready.
+2025-12-18 01:48:30,802 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-18 01:48:30,803 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-18 01:48:31,259 [INFO] db.create_all OK
+2025-12-18 01:48:31,259 [INFO] Loaded app.py successfully.
+2025-12-18 01:48:31,259 [INFO] WSGI Application ready.
+2025-12-18 02:26:38,295 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-18 02:26:38,295 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-18 02:26:38,530 [INFO] db.create_all OK
+2025-12-18 02:26:38,530 [INFO] Loaded app.py successfully.
+2025-12-18 02:26:38,530 [INFO] WSGI Application ready.
+2025-12-18 06:00:15,828 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-18 06:00:15,828 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-18 06:00:16,254 [INFO] db.create_all OK
+2025-12-18 06:00:16,254 [INFO] Loaded app.py successfully.
+2025-12-18 06:00:16,254 [INFO] WSGI Application ready.
+2025-12-18 06:00:29,614 [INFO] Passenger start. BASE_DIR=/home/host523765/domains/ecotrack.com.pl/eco_app/app
+2025-12-18 06:00:29,614 [INFO] Loading explicit file: /home/host523765/domains/ecotrack.com.pl/eco_app/app/app.py
+2025-12-18 06:00:29,936 [INFO] db.create_all OK
+2025-12-18 06:00:29,936 [INFO] Loaded app.py successfully.
+2025-12-18 06:00:29,936 [INFO] WSGI Application ready.

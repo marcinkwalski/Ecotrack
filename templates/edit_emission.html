@@ -1,35 +1,86 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Edytuj wpis</h1>
+<h1>Edytuj emisję</h1>
 
 <section class="card">
-  <form method="post" class="form">
-    <label>
-      Kategoria
-      <select name="category">
-        <option value="transport" {% if rec.category=='transport' %}selected{% endif %}>Transport (km)</option>
-        <option value="food" {% if rec.category=='food' %}selected{% endif %}>Jedzenie (kg)</option>
-        <option value="energy" {% if rec.category=='energy' %}selected{% endif %}>Energia (kWh)</option>
-        <option value="other" {% if rec.category=='other' %}selected{% endif %}>Inne</option>
-      </select>
-    </label>
 
-    <label>
-      Ilość (raw units: km/kWh/kg)
-      <input name="amount" type="number" step="0.01" value="{{ raw_amount }}">
-    </label>
+    <form method="post">
 
-    <label>
-      Notatka
-      <input name="note" type="text" value="{{ rec.note or '' }}">
-    </label>
+        <label>Kategoria
+            <select name="category" id="category-select" onchange="onCategoryChange()" required>
+                <option value="transport" {% if rec.category=='transport' %}selected{% endif %}>Transport</option>
+                <option value="food" {% if rec.category=='food' %}selected{% endif %}>Jedzenie</option>
+                <option value="energy" {% if rec.category=='energy' %}selected{% endif %}>Energia</option>
+                <option value="other" {% if rec.category=='other' %}selected{% endif %}>Inne</option>
+            </select>
+        </label>
 
-    <div class="form-actions">
-      <button type="submit" class="btn-animated">Zapisz zmiany</button>
-      <a href="{{ url_for('dashboard') }}" class="btn-ghost">Anuluj</a>
-    </div>
-  </form>
+        <label>Podkategoria
+            <select name="subcategory" id="subcategory-select" required></select>
+        </label>
+
+        <label>Ilość
+            <input name="amount" type="number" step="0.01" value="{{ rec.raw_amount }}" required>
+        </label>
+
+        <label>Jednostka
+            <input name="unit" type="text" value="{{ rec.amount_unit }}">
+        </label>
+
+        <label>Notatka
+            <input name="note" type="text" value="{{ rec.note }}">
+        </label>
+
+        <button class="btn-animated" type="submit">Zapisz</button>
+
+        <a href="{{ url_for('dashboard') }}" class="btn-ghost">Powrót</a>
+
+    </form>
+
 </section>
+
+<script>
+    const SUBCATS = {
+    transport: {
+        walk:"Pieszo", bike:"Rower", escooter_electric:"Hulajnoga elektryczna",
+        scooter_petrol:"Skuter spalinowy",
+        car_petrol:"Samochód (benzyna)", car_diesel:"Samochód (diesel)",
+        car_hybrid:"Samochód (hybrydowy)", car_ev:"Samochód (elektryczny)",
+        bus:"Autobus", train:"Pociąg",
+        plane_short:"Samolot (krótki lot)", plane_long:"Samolot (długi lot)"
+    },
+    food: {
+        beef:"Wołowina", lamb:"Jagnięcina", cheese:"Ser", pork:"Wieprzowina",
+        poultry:"Drób", eggs:"Jajka", fish:"Ryba",
+        vegetables:"Warzywa", fruits:"Owoce", grains:"Zboża", nuts:"Orzechy"
+    },
+    energy: {
+        electricity_pl:"Prąd (mix PL)", electricity_green:"Prąd (zielony)",
+        gas:"Gaz", lpg:"LPG", coal:"Węgiel"
+    },
+    other: {
+        electronics:"Elektronika", clothing:"Odzież", furniture:"Meble"
+    }
+};
+
+function onCategoryChange() {
+    const cat = document.getElementById("category-select").value;
+    const sub = document.getElementById("subcategory-select");
+
+    sub.innerHTML = "";
+
+    for (let key in SUBCATS[cat]) {
+        const opt = document.createElement("option");
+        opt.value = key;
+        opt.textContent = SUBCATS[cat][key];
+        if (key === "{{ rec.subcategory }}") opt.selected = true;
+        sub.appendChild(opt);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", onCategoryChange);
+
+</script>
 
 {% endblock %}

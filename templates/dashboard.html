@@ -172,44 +172,44 @@
         <div class="card shadow-sm">
             <div class="card-header">Historia emisji</div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-sm table-app align-middle mb-0">
-                        <thead>
-                            <tr>
-                                <th>Data</th>
-                                <th>Kategoria</th>
-                                <th>Podkategoria</th>
-                                <th>Ilość</th>
-                                <th>CO₂ (kg)</th>
-                                <th>Notatka</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for r in records %}
-                            <tr>
-                                <td>{{ r.created_at.strftime("%Y-%m-%d %H:%M") }}</td>
-                                <td><span class="badge">{{ r.category }}</span></td>
-                                <td>{{ SUBCATEGORY_LABELS.get(r.subcategory, r.subcategory) }}</td>
-                                <td><span class="amount">{{ r.raw_amount }}</span> {{ r.amount_unit }}</td>
-                                <td><span class="amount">{{ "%.3f"|format(r.value) }}</span></td>
-                                <td class="text-secondary">{{ r.note }}</td>
-                                <td class="text-end">
-                                    <div class="d-inline-flex gap-1">
-                                        <a href="{{ url_for('edit_emission', id=r.id) }}" class="btn btn-outline-success btn-sm" aria-label="Edytuj">
-                                            <i class="bi bi-pencil"></i>
-                                        </a>
-                                        <form action="{{ url_for('delete_emission', id=r.id) }}" method="post" class="d-inline">
-                                            <button class="btn btn-outline-success btn-sm" type="submit" aria-label="Usuń">
-                                                <i class="bi bi-trash3"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                <div class="history-list">
+                    {% for r in records %}
+                    <div class="history-row">
+                        <div class="history-category">
+                            <span class="history-category-chip" aria-label="{{ r.category }}">
+                                {% if r.category == "transport" or r.category == "Transport" %}
+                                <i class="bi bi-car-front"></i>
+                                {% elif r.category == "food" or r.category == "jedzenie" or r.category == "Jedzenie" %}
+                                <i class="bi bi-basket2"></i>
+                                {% elif r.category == "energy" or r.category == "energia" or r.category == "Energia" %}
+                                <i class="bi bi-lightning-charge"></i>
+                                {% else %}
+                                <i class="bi bi-three-dots"></i>
+                                {% endif %}
+                            </span>
+                        </div>
+                        <div class="history-desc">
+                            <div class="history-title" title="{{ SUBCATEGORY_LABELS.get(r.subcategory, r.subcategory) }}">{{ SUBCATEGORY_LABELS.get(r.subcategory, r.subcategory) }}</div>
+                            <div class="history-meta text-secondary">
+                                {{ r.created_at.strftime("%Y-%m-%d %H:%M") }}
+                            </div>
+                        </div>
+                        <div class="history-metrics">
+                            <div class="history-amount"><span class="amount">{{ r.raw_amount }}</span> {{ r.amount_unit }}</div>
+                            <div class="history-co2 text-secondary">{{ "%.3f"|format(r.value) }} kg CO₂</div>
+                        </div>
+                        <div class="history-actions">
+                            <a href="{{ url_for('edit_emission', id=r.id) }}" class="btn btn-outline-success btn-sm" aria-label="Edytuj">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <form action="{{ url_for('delete_emission', id=r.id) }}" method="post" class="d-inline">
+                                <button class="btn btn-outline-success btn-sm" type="submit" aria-label="Usuń">
+                                    <i class="bi bi-trash3"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

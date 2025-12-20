@@ -1,14 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Ustaw nowe hasło</h1>
-
-<form method="post" class="card form">
-    <label>Nowe hasło
-        <input name="password" type="password" required>
-    </label>
-    <label>Powtórz hasło
-        <input name="confirm" type="password" required>
-    </label>
-    <button>Zapisz</button>
-</form>
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-sm">
+            <div class="card-header">Ustaw nowe hasło</div>
+            <div class="card-body">
+                <form method="post" class="vstack gap-3">
+                    <div>
+                        <label class="form-label">Nowe hasło</label>
+                        <input name="password" type="password" class="form-control" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Powtórz hasło</label>
+                        <input name="confirm" type="password" class="form-control" required>
+                    </div>
+                    <button class="btn btn-success w-100" type="submit">Zapisz</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

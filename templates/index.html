@@ -1,110 +1,92 @@
 {% extends "base.html" %}
 {% block content %}
 
-<style>
-/* Minimalne style pomocnicze – nie modyfikują Twojego globalnego CSS */
-.landing-hero {
-    text-align: center;
-    padding: 40px 20px;
-}
-.landing-hero h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-.landing-hero p {
-    font-size: 18px;
-    max-width: 650px;
-    margin: auto;
-    opacity: 0.85;
-}
-.landing-cta {
-    margin-top: 25px;
-}
-.landing-cta a {
-    display: inline-block;
-    padding: 12px 22px;
-    background: var(--primary, #2b8a3e);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    margin: 5px;
-}
-.landing-cta a.secondary {
-    background: #555;
-}
-
-.landing-grid {
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 20px;
-}
-.landing-card-icon {
-    font-size: 40px;
-}
-</style>
-
-
-<!-- HERO -->
-<div class="landing-hero">
-    <h1>Dbaj o planetę. Zacznij od siebie. 🌍</h1>
-    <p>
-        EcoTrack pomaga monitorować Twoją emisję CO₂ i odkrywać, jak codzienne wybory wpływają na środowisko.
-        Prosto, czytelnie i skutecznie.
-    </p>
-
-    <div class="landing-cta">
-        <a href="{{ url_for('register') }}">Załóż darmowe konto</a>
-        <a href="{{ url_for('login') }}" class="secondary">Zaloguj się</a>
+<section class="py-4">
+    <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+            <span class="badge badge-soft mb-3">Nowoczesny kalkulator emisji</span>
+            <h1 class="display-5 fw-semibold">Panel EcoTrack</h1>
+            <p class="lead text-muted">
+                Monitoruj emisję CO₂, analizuj trendy i sprawdzaj wpływ zmian w nawykach.
+                Jeden spójny widok danych, raporty i szybka symulacja.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mt-4">
+                <a href="{{ url_for('register') }}" class="btn btn-success btn-lg">Załóż konto</a>
+                <a href="{{ url_for('login') }}" class="btn btn-outline-success btn-lg">Zaloguj się</a>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <span class="icon-circle"><i class="bi bi-graph-up"></i></span>
+                        <div>
+                            <div class="metric-label">Prognoza i trendy</div>
+                            <div class="metric-value">Zielony kierunek</div>
+                        </div>
+                    </div>
+                    <p class="text-muted mb-0">Zestawienia KPI, wykresy i rekomendacje w jednym miejscu.</p>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</section>
 
-
-<!-- Funkcje aplikacji -->
-<div class="landing-grid">
-
-    <div class="card">
-        <div class="landing-card-icon">📊</div>
-        <h3>Przejrzyste wykresy</h3>
-        <p>Monitoruj swoje emisje dzięki intuicyjnym wykresom i czytelnym statystykom.</p>
+<section class="row g-4">
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <div class="icon-circle mb-3"><i class="bi bi-bar-chart"></i></div>
+                <h3 class="h5">Przejrzyste wykresy</h3>
+                <p class="text-muted mb-0">Widok trendów dziennych i udziału kategorii emisji.</p>
+            </div>
+        </div>
     </div>
-
-    <div class="card">
-        <div class="landing-card-icon">🚗</div>
-        <h3>Kalkulator CO₂</h3>
-        <p>Transport, energia, żywność i zakupy — wszystko liczone automatycznie.</p>
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <div class="icon-circle mb-3"><i class="bi bi-fuel-pump"></i></div>
+                <h3 class="h5">Kalkulator CO₂</h3>
+                <p class="text-muted mb-0">Transport, energia, żywność i zakupy liczone automatycznie.</p>
+            </div>
+        </div>
     </div>
-
-    <div class="card">
-        <div class="landing-card-icon">✨</div>
-        <h3>Symulacja „Co jeśli?”</h3>
-        <p>Sprawdź, jak zmiana nawyków wpływa na Twój ślad węglowy.</p>
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <div class="icon-circle mb-3"><i class="bi bi-lightning-charge"></i></div>
+                <h3 class="h5">Symulacja zmian</h3>
+                <p class="text-muted mb-0">Sprawdź wpływ nowych nawyków na roczny ślad węglowy.</p>
+            </div>
+        </div>
     </div>
-
-    <div class="card">
-        <div class="landing-card-icon">🌱</div>
-        <h3>Podpowiedzi ekologiczne</h3>
-        <p>Otrzymuj praktyczne wskazówki dopasowane do Twojego stylu życia.</p>
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <div class="icon-circle mb-3"><i class="bi bi-lightbulb"></i></div>
+                <h3 class="h5">Wskazówki ekologiczne</h3>
+                <p class="text-muted mb-0">Rekomendacje dopasowane do Twoich danych.</p>
+            </div>
+        </div>
     </div>
-
-    <div class="card">
-        <div class="landing-card-icon">📁</div>
-        <h3>Eksport raportów</h3>
-        <p>Pobieraj dane w PDF i CSV, analizuj postępy i dziel się wynikami.</p>
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <div class="icon-circle mb-3"><i class="bi bi-file-earmark-arrow-down"></i></div>
+                <h3 class="h5">Eksport raportów</h3>
+                <p class="text-muted mb-0">Pobieraj dane w PDF i CSV do dalszej analizy.</p>
+            </div>
+        </div>
     </div>
-
-    <div class="card">
-        <div class="landing-card-icon">🔒</div>
-        <h3>Bezpieczeństwo danych</h3>
-        <p>Twoje dane są zabezpieczone z użyciem najlepszych praktyk.</p>
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <div class="icon-circle mb-3"><i class="bi bi-shield-lock"></i></div>
+                <h3 class="h5">Bezpieczne dane</h3>
+                <p class="text-muted mb-0">Ochrona informacji i stabilne przechowywanie wyników.</p>
+            </div>
+        </div>
     </div>
-
-</div>
-
-
-<!-- STOPKA -->
-<div style="text-align:center; margin-top:40px; opacity:0.7;">
-    EcoTrack © {{ year }} • Razem dla klimatu 🌿
-</div>
+</section>
 
 {% endblock %}

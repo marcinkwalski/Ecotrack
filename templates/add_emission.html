@@ -1,67 +1,49 @@
-<form action="{{ url_for('add_emission') }}" method="post">
-    <label for="category">Kategoria</label>
-    <select id="category" name="category" onchange="onCategoryChange()" required>
-    <option value="transport">Transport</option>
-    <option value="food">Jedzenie</option>
-    <option value="energy">Energia</option>
-    <option value="other">Inne</option>
-  </select>
+{% extends "base.html" %}
+{% block content %}
+<h1 class="mb-4">Dodaj emisję</h1>
 
-    <label for="subcategory">Środek / Produkt</label>
-    <select id="subcategory" name="subcategory"></select>
+<div class="card shadow-sm">
+    <div class="card-header">Formularz emisji</div>
+    <div class="card-body">
+        <form action="{{ url_for('add_emission') }}" method="post" class="row g-3">
+            <div class="col-md-6">
+                <label for="category" class="form-label">Kategoria</label>
+                <select id="category" name="category" class="form-select" required>
+                    <option value="transport">Transport</option>
+                    <option value="food">Jedzenie</option>
+                    <option value="energy">Energia</option>
+                    <option value="other">Inne</option>
+                </select>
+            </div>
 
-    <label for="amount">Ilość</label>
-    <input id="amount" name="amount" type="number" step="any" required>
+            <div class="col-md-6">
+                <label for="subcategory" class="form-label">Środek / Produkt</label>
+                <select id="subcategory" name="subcategory" class="form-select"></select>
+            </div>
 
-    <label for="unit">Jednostka (np. km / kg / kWh)</label>
-    <input id="unit" name="unit" type="text" placeholder="km / kg / kWh">
+            <div class="col-md-6">
+                <label for="amount" class="form-label">Ilość</label>
+                <input id="amount" name="amount" type="number" step="any" class="form-control" required>
+            </div>
 
-    <label for="note">Notatka</label>
-    <input id="note" name="note" type="text">
+            <div class="col-md-6">
+                <label for="unit" class="form-label">Jednostka (np. km / kg / kWh)</label>
+                <input id="unit" name="unit" type="text" class="form-control" placeholder="km / kg / kWh">
+            </div>
 
-    <button type="submit">Dodaj</button>
-</form>
+            <div class="col-12">
+                <label for="note" class="form-label">Notatka</label>
+                <input id="note" name="note" type="text" class="form-control">
+            </div>
 
-<script>
-    const subcats = {
-  transport: [
-    ["walk","Pieszo"],["bike","Rower"],["escooter_electric","Hulajnoga elektryczna"],
-    ["scooter_petrol","Hulajnoga spalinowa"],["car_petrol","Samochód (benzyna)"],
-    ["car_diesel","Samochód (diesel)"],["car_hybrid","Samochód (hybrid)"],
-    ["car_ev","Samochód (elektryczny)"],["bus","Autobus"],["train","Pociąg"],
-    ["plane_short","Samolot (krótki)"],["plane_long","Samolot (długi)"]
-  ],
-  food: [
-    ["beef","Wołowina"],["lamb","Jagnięcina"],["cheese","Ser"],["pork","Wieprzowina"],
-    ["poultry","Drób"],["eggs","Jajka"],["fish","Ryba"],["vegetables","Warzywa"],
-    ["fruits","Owoce"],["grains","Zboża"],["nuts","Orzechy"]
-  ],
-  energy: [
-    ["electricity_pl","Elektryczność (mix PL)"],["electricity_green","Elektryczność (OZE)"],
-    ["gas","Gaz"],["lpg","LPG"],["coal","Węgiel"]
-  ],
-  other: [
-    ["electronics","Elektronika"],["clothing","Odzież"],["furniture","Meble"]
-  ]
-};
+            <div class="col-12">
+                <button type="submit" class="btn btn-success">Dodaj</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
 
-function onCategoryChange() {
-  const cat = document.getElementById('category').value;
-  const sel = document.getElementById('subcategory');
-  sel.innerHTML = "";
-  (subcats[cat] || []).forEach(([val,label]) => {
-    const opt = document.createElement('option');
-    opt.value = val; opt.textContent = label;
-    sel.appendChild(opt);
-  });
-
-  // sugestia jednostki
-  const unit = document.getElementById('unit');
-  if (cat === 'transport') unit.value = 'km';
-  else if (cat === 'food') unit.value = 'kg';
-  else if (cat === 'energy') unit.value = 'kWh';
-  else unit.value = '';
-}
-
-document.addEventListener('DOMContentLoaded', onCategoryChange);
-</script>
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/add_emission.js') }}"></script>
+{% endblock %}

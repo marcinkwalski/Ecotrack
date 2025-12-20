@@ -32,7 +32,8 @@ f = Fernet(FERNET_KEY.encode())
 app = Flask(__name__)
 app.secret_key = "change-me-secure"
 
-app.config['SQLALCHEMY_DATABASE_URI'] = (
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
+    "SQLALCHEMY_DATABASE_URI",
     "mysql+pymysql://host523765_ecotrack:dt65fr6aJj4LMRz99YQZ@localhost/host523765_ecotrack?charset=utf8mb4"
 )
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

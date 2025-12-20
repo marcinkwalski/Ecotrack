@@ -26,6 +26,8 @@ body {
         linear-gradient(160deg, var(--bg-1), var(--bg-2) 45%, var(--bg-3));
     color: var(--text);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 main,
@@ -87,6 +89,11 @@ main,
     color: var(--muted);
     background: rgba(10, 20, 15, 0.6);
     backdrop-filter: blur(10px);
+    margin-top: auto;
+}
+
+.app-main {
+    flex: 1;
 }
 
 .card {

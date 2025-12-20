@@ -1,591 +1,225 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Panel użytkownika</h1>
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+    <div>
+        <h1 class="mb-1">Panel użytkownika</h1>
+        <p class="text-secondary mb-0">Kontroluj emisje, analizuj trendy i wykonuj symulacje.</p>
+    </div>
+    <div class="d-flex gap-2">
+        <button onclick="window.location.href='{{ url_for('export_csv') }}'" class="btn btn-outline-success">Eksport CSV</button>
+        <button onclick="window.location.href='{{ url_for('export_pdf') }}'" class="btn btn-success">Eksport PDF</button>
+    </div>
+</div>
 
-<!-- KPI SECTION -->
-<section class="kpi-row">
-    <div class="kpi card">
-        <div class="kpi-body">
-            <div class="kpi-label">Łączna emisja</div>
-            <div class="kpi-value">{{ total_sum|round(2) }} kg CO₂</div>
-            <div class="kpi-sub">Prognoza roczna: {{ predicted_annual|round(1) }} kg</div>
+<div class="row g-3 mb-4">
+    <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card h-100 shadow-sm metric-card">
+            <div class="card-body">
+                <div class="metric-label">Łączna emisja</div>
+                <div class="metric-value">{{ total_sum|round(2) }} kg CO₂</div>
+                <div class="text-secondary small">Prognoza roczna: {{ predicted_annual|round(1) }} kg</div>
+            </div>
         </div>
     </div>
-
-    <div class="kpi card">
-        <div class="kpi-body">
-            <div class="kpi-label">7 dni</div>
-            <div class="kpi-value">{{ last_7|round(2) }} kg</div>
+    <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card h-100 shadow-sm metric-card">
+            <div class="card-body">
+                <div class="metric-label">7 dni</div>
+                <div class="metric-value">{{ last_7|round(2) }} kg</div>
+            </div>
         </div>
     </div>
-
-    <div class="kpi card">
-        <div class="kpi-body">
-            <div class="kpi-label">30 dni</div>
-            <div class="kpi-value">{{ last_30|round(2) }} kg</div>
+    <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card h-100 shadow-sm metric-card">
+            <div class="card-body">
+                <div class="metric-label">30 dni</div>
+                <div class="metric-value">{{ last_30|round(2) }} kg</div>
+            </div>
         </div>
     </div>
-
-    <div class="kpi card">
-        <div class="kpi-body">
-            <div class="kpi-label">365 dni</div>
-            <div class="kpi-value">{{ last_365|round(2) }} kg</div>
+    <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card h-100 shadow-sm metric-card">
+            <div class="card-body">
+                <div class="metric-label">365 dni</div>
+                <div class="metric-value">{{ last_365|round(2) }} kg</div>
+            </div>
         </div>
     </div>
-
-    <div class="kpi card">
-        <div class="kpi-body">
-            <div class="kpi-label">Porównanie z PL</div>
-            <div class="kpi-value">{{ compare_percent|round(1) }}%</div>
-            <div class="kpi-sub">Średnia PL: {{ poland_avg }} kg/rok</div>
+    <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card h-100 shadow-sm metric-card">
+            <div class="card-body">
+                <div class="metric-label">Porównanie z PL</div>
+                <div class="metric-value">{{ compare_percent|round(1) }}%</div>
+                <div class="text-secondary small">Średnia PL: {{ poland_avg }} kg/rok</div>
+            </div>
         </div>
     </div>
-</section>
+</div>
 
+<div class="row g-4">
+    <div class="col-lg-8">
+        <div class="card shadow-sm mb-4">
+            <div class="card-header">Dodaj emisję</div>
+            <div class="card-body">
+                <form method="post" action="{{ url_for('add_emission') }}" class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Kategoria</label>
+                        <select id="category" name="category" class="form-select" required>
+                            <option value="transport">Transport</option>
+                            <option value="food">Jedzenie</option>
+                            <option value="energy">Energia</option>
+                            <option value="other">Inne</option>
+                        </select>
+                    </div>
 
-<!-- MAIN LAYOUT -->
-<div class="layout">
+                    <div class="col-md-6">
+                        <label class="form-label">Podkategoria</label>
+                        <select id="subcategory" name="subcategory" class="form-select" required></select>
+                    </div>
 
-    <!-- LEFT COLUMN -->
-    <div class="left-col">
+                    <div class="col-md-4">
+                        <label class="form-label">Ilość</label>
+                        <input name="amount" type="number" step="0.01" class="form-control" required>
+                    </div>
 
-        <!-- ADD EMISSION -->
-        <section class="card">
-            <h2>Dodaj emisję</h2>
+                    <div class="col-md-4">
+                        <label class="form-label">Jednostka</label>
+                        <input id="unit" name="unit" type="text" class="form-control" readonly>
+                    </div>
 
-            <form method="post" action="{{ url_for('add_emission') }}" class="form">
-                <label>
-                    Kategoria
-                    <select id="category" name="category" required onchange="updateSubcategories()">
-                        <option value="transport">Transport</option>
-                        <option value="food">Jedzenie</option>
-                        <option value="energy">Energia</option>
-                        <option value="other">Inne</option>
+                    <div class="col-md-4">
+                        <label class="form-label">Notatka</label>
+                        <input name="note" type="text" class="form-control">
+                    </div>
+
+                    <div class="col-12">
+                        <button class="btn btn-success w-100" type="submit">Dodaj emisję</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mb-4">
+            <div class="card-header d-flex flex-wrap align-items-center justify-content-between gap-3">
+                <span>Wykres emisji (historyczny)</span>
+                <div class="d-flex flex-wrap align-items-center gap-2">
+                    <label for="rangeSelect" class="form-label mb-0 text-secondary">Zakres</label>
+                    <select id="rangeSelect" class="form-select form-select-sm w-auto">
+                        <option value="7">7 dni</option>
+                        <option value="30">30 dni</option>
+                        <option value="90">90 dni</option>
+                        <option value="365">Rok</option>
+                        <option value="all" selected>Całość</option>
                     </select>
-                </label>
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Typ wykresu">
+                        <button type="button" class="btn btn-outline-success chart-type-btn active" data-chart-type="line">Line</button>
+                        <button type="button" class="btn btn-outline-success chart-type-btn" data-chart-type="bar">Bar</button>
+                        <button type="button" class="btn btn-outline-success chart-type-btn" data-chart-type="area">Area</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="line-empty" class="chart-empty d-none">Brak danych do wyświetlenia wykresu.</div>
+                <canvas id="emissionChart" class="chart-canvas"></canvas>
+            </div>
+        </div>
 
-                <label>
-                    Podkategoria
-                    <select id="subcategory" name="subcategory" required></select>
-                </label>
+        <div class="card shadow-sm mb-4">
+            <div class="card-header">Udział kategorii emisji</div>
+            <div class="card-body position-relative">
+                <div id="pie-empty" class="chart-empty d-none">Brak danych do podziału kategorii.</div>
+                <canvas id="pieChart" class="chart-canvas"></canvas>
+                <div id="pie-tooltip" class="chart-tooltip"></div>
+                <div id="pie-legend" class="chart-legend mt-3"></div>
+            </div>
+        </div>
 
-                <label>Ilość
-                    <input name="amount" type="number" step="0.01" required>
-                </label>
-
-                <label>Jednostka
-                    <input id="unit" name="unit" type="text" readonly>
-                </label>
-
-                <label>Notatka
-                    <input name="note" type="text">
-                </label>
-
-                <button class="btn-animated" type="submit">Dodaj emisję</button>
-            </form>
-        </section>
-
-
-        <!-- LINE CHART -->
-        <section class="card">
-            <h2>Wykres emisji (historyczny)</h2>
-
-            <label>Zakres:
-                <select id="rangeSelect">
-                    <option value="7">7 dni</option>
-                    <option value="30">30 dni</option>
-                    <option value="90">90 dni</option>
-                    <option value="365">Rok</option>
-                    <option value="all" selected>Całość</option>
-                </select>
-            </label>
-
-            <canvas id="emissionChart" style="width:100%; height:300px;"></canvas>
-        </section>
-
-
-        <!-- PIE CHART -->
-        <section class="card">
-            <h2>Udział kategorii emisji</h2>
-            <canvas id="pieChart" style="width:100%; height:300px;"></canvas>
-        </section>
-
-
-        <!-- SIMULATION -->
-        <section class="card">
-           <div class="card" style="margin-top: 20px;">
-    <h2>Symulacja „Co jeśli?”</h2>
-
-    <label>Kategoria</label>
-    <select id="sim-category" class="form-input">
-        <option value="">-- wybierz --</option>
-        <option value="transport">Transport</option>
-        <option value="food">Żywność</option>
-        <option value="energy">Energia</option>
-        <option value="other">Inne</option>
-    </select>
-
-    <label>Podkategoria</label>
-    <select id="sim-subcategory" class="form-input">
-        <option value="">-- wybierz kategorię --</option>
-    </select>
-
-    <label>Zmiana ilości</label>
-    <input id="sim-amount" type="number" class="form-input" placeholder="np. 50">
-
-    <button id="sim-run" class="btn-primary" style="margin-top: 12px;">Przelicz</button>
-
-    <div id="sim-result" style="margin-top:20px; display:none;"></div>
-</div>
-
-        </section>
-
+        <div class="card shadow-sm">
+            <div class="card-header">Symulacja „Co jeśli?”</div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Kategoria</label>
+                        <select id="sim-category" class="form-select">
+                            <option value="">-- wybierz --</option>
+                            <option value="transport">Transport</option>
+                            <option value="food">Żywność</option>
+                            <option value="energy">Energia</option>
+                            <option value="other">Inne</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Podkategoria</label>
+                        <select id="sim-subcategory" class="form-select">
+                            <option value="">-- wybierz kategorię --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Zmiana ilości</label>
+                        <input id="sim-amount" type="number" class="form-control" placeholder="np. 50">
+                    </div>
+                    <div class="col-md-6 d-flex align-items-end">
+                        <button id="sim-run" class="btn btn-success w-100">Przelicz</button>
+                    </div>
+                </div>
+                <div id="sim-result" class="mt-3 d-none"></div>
+            </div>
+        </div>
     </div>
 
-
-    <!-- RIGHT COLUMN -->
-    <aside class="right-col">
-
-        <section class="card">
-            <h2>Historia emisji</h2>
-
-            <button onclick="window.location.href='{{ url_for('export_csv') }}'" class="btn-ghost">CSV</button>
-            <button onclick="window.location.href='{{ url_for('export_pdf') }}'" class="btn-ghost">PDF</button>
-<style>
-    .records td,
-    .records th {
-        padding: 4px 6px !important;
-        font-size: 15px;
-        line-height: 1.4;
-    }
-
-    .records tr {
-        height: 25px !important;
-    }
-
-    .records {
-        font-size: 15px;
-    }
-</style>
-            <table class="records">
-                <thead>
-                    <tr>
-                        <th>Data</th>
-                        <th>Kategoria</th>
-                        <th>Podkategoria</th>
-                        <th>Ilość</th>
-                        <th>CO₂ (kg)</th>
-                        <th>Notatka</th>
-                        <th></th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {% for r in records %}
-                    <tr>
-                        <td>{{ r.created_at.strftime("%Y-%m-%d %H:%M") }}</td>
-                        <td>{{ r.category }}</td>
-                        <td>{{ SUBCATEGORY_LABELS.get(r.subcategory, r.subcategory) }}</td>
-                        <td>{{ r.raw_amount }} {{ r.amount_unit }}</td>
-                        <td>{{ "%.3f"|format(r.value) }}</td>
-                        <td>{{ r.note }}</td>
-                        <td style="white-space:nowrap;">
-                            <form action="{{ url_for('delete_emission', id=r.id) }}" method="post"
-                                style="display:inline;">
-                                <button class="btn-danger">Usuń</button>
-                            </form>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-
-        </section>
-
-    </aside>
-
+    <div class="col-lg-4">
+        <div class="card shadow-sm">
+            <div class="card-header">Historia emisji</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-sm table-app align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Kategoria</th>
+                                <th>Podkategoria</th>
+                                <th>Ilość</th>
+                                <th>CO₂ (kg)</th>
+                                <th>Notatka</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for r in records %}
+                            <tr>
+                                <td>{{ r.created_at.strftime("%Y-%m-%d %H:%M") }}</td>
+                                <td><span class="badge">{{ r.category }}</span></td>
+                                <td>{{ SUBCATEGORY_LABELS.get(r.subcategory, r.subcategory) }}</td>
+                                <td><span class="amount">{{ r.raw_amount }}</span> {{ r.amount_unit }}</td>
+                                <td><span class="amount">{{ "%.3f"|format(r.value) }}</span></td>
+                                <td class="text-secondary">{{ r.note }}</td>
+                                <td class="text-end">
+                                    <div class="d-inline-flex gap-1">
+                                        <a href="{{ url_for('edit_emission', id=r.id) }}" class="btn btn-outline-success btn-sm" aria-label="Edytuj">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <form action="{{ url_for('delete_emission', id=r.id) }}" method="post" class="d-inline">
+                                            <button class="btn btn-outline-success btn-sm" type="submit" aria-label="Usuń">
+                                                <i class="bi bi-trash3"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
+<script id="records-data" type="application/json">{{ records_json | tojson }}</script>
 
-<!-- JSON Data -->
-<script>
-    const RECORDS = {{ records_json | tojson }};
-</script>
+{% endblock %}
 
-
-<!-- SUBCATEGORY / UNIT LOGIC -->
-<script>
-    const SUBCATEGORIES = {
-    transport: {
-        walk: "Spacer",
-        bike: "Rower",
-        escooter_electric: "Hulajnoga elektryczna",
-        scooter_petrol: "Skuter spalinowy",
-        car_petrol: "Samochód benzynowy",
-        car_diesel: "Samochód diesel",
-        car_hybrid: "Samochód hybrydowy",
-        car_ev: "Samochód elektryczny",
-        bus: "Autobus",
-        train: "Pociąg",
-        plane_short: "Samolot (krótki lot)",
-        plane_long: "Samolot (długi lot)"
-    },
-    food: {
-        beef: "Wołowina",
-        lamb: "Baranina",
-        cheese: "Ser",
-        pork: "Wieprzowina",
-        poultry: "Drób",
-        eggs: "Jajka",
-        fish: "Ryby",
-        vegetables: "Warzywa",
-        fruits: "Owoce",
-        grains: "Zboża",
-        nuts: "Orzechy"
-    },
-    energy: {
-        electricity_pl: "Energia (mix PL)",
-        electricity_green: "Energia zielona",
-        gas: "Gaz",
-        lpg: "LPG",
-        coal: "Węgiel"
-    }
-};
-
-const UNITS = {
-    transport: "km",
-    food: "kg",
-    energy: "kWh",
-    other: "szt"
-};
-
-function updateSubcategories(){
-    const cat = document.getElementById("category").value;
-    const subSel = document.getElementById("subcategory");
-    const unit = document.getElementById("unit");
-
-    subSel.innerHTML = "";
-    for(let k in SUBCATEGORIES[cat]){
-        let opt = document.createElement("option");
-        opt.value = k;
-        opt.textContent = SUBCATEGORIES[cat][k];
-        subSel.appendChild(opt);
-    }
-    unit.value = UNITS[cat];
-}
-
-document.addEventListener("DOMContentLoaded", updateSubcategories);
-</script>
-
-
-<!-- SIMULATION LOGIC -->
-<script>
-    function updateSimSub(){
-    const cat = document.getElementById("sim-cat").value;
-    const subSel = document.getElementById("sim-sub");
-
-    subSel.innerHTML = "";
-    for(let k in SUBCATEGORIES[cat]){
-        let opt = document.createElement("option");
-        opt.value = k;
-        opt.textContent = SUBCATEGORIES[cat][k];
-        subSel.appendChild(opt);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", updateSimSub);
-document.getElementById("sim-cat").addEventListener("change", updateSimSub);
-
-
-function simulate(){
-    const cat = document.getElementById("sim-cat").value;
-    const sub = document.getElementById("sim-sub").value;
-    const amount = Number(document.getElementById("sim-amount").value);
-
-    fetch("/simulate", {
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({
-            category: cat,
-            subcategory: sub,
-            change: amount
-        })
-    })
-    .then(r => r.json())
-    .then(data => {
-        document.getElementById("sim-result").textContent =
-            "Roczna zmiana emisji: " + data.change_kg_year.toFixed(2) + " kg CO₂";
-    });
-}
-</script>
-
-
-<!-- CHARTS -->
-<script>
-    function getDaily(records){
-    let sums = {};
-    records.forEach(r=>{
-        let d = r.created_at.split("T")[0];
-        sums[d] = (sums[d]||0) + Number(r.value);
-    });
-    return sums;
-}
-
-function filterRange(daily, range){
-    if(range==="all") return daily;
-    const cutoff = new Date();
-    cutoff.setDate(cutoff.getDate() - Number(range) + 1);
-
-    let out = {};
-    for(let d in daily){
-        if(new Date(d) >= cutoff) out[d] = daily[d];
-    }
-    return out;
-}
-
-function drawLine(records, range){
-    const cv = document.getElementById("emissionChart");
-    const ctx = cv.getContext("2d");
-
-    cv.width = cv.clientWidth;
-    cv.height = cv.clientHeight;
-
-    let daily = getDaily(records);
-    daily = filterRange(daily, range);
-
-    const days = Object.keys(daily).sort();
-    const values = days.map(d=>daily[d]);
-
-    ctx.clearRect(0,0,cv.width,cv.height);
-
-    if(values.length===0){
-        ctx.fillText("Brak danych",20,40);
-        return;
-    }
-
-    if(values.length===1){
-        ctx.beginPath();
-        ctx.arc(cv.width/2, cv.height/2, 6, 0, Math.PI*2);
-        ctx.fill();
-        ctx.fillText(days[0], cv.width/2-30, cv.height-10);
-        return;
-    }
-
-    const ML=60, MR=20, MT=20, MB=40;
-    const W = cv.width - ML - MR;
-    const H = cv.height - MT - MB;
-
-    const maxVal = Math.max(...values)*1.2;
-
-    const x=i => ML + (i/(values.length-1))*W;
-    const y=v => MT + H - (v/maxVal)*H;
-
-    ctx.strokeStyle="#ccc";
-    ctx.lineWidth=1;
-
-    for(let i=0; i<=4; i++){
-        let yy = MT + (H/4)*i;
-        ctx.beginPath();
-        ctx.moveTo(ML,yy);
-        ctx.lineTo(cv.width-MR,yy);
-        ctx.stroke();
-        ctx.fillText((maxVal*(1-i/4)).toFixed(1), 10, yy+4);
-    }
-
-    ctx.beginPath();
-    ctx.strokeStyle="#2b8a3e";
-    ctx.lineWidth=3;
-    ctx.moveTo(x(0),y(values[0]));
-    for(let i=1;i<values.length;i++){
-        ctx.lineTo(x(i),y(values[i]));
-    }
-    ctx.stroke();
-
-    ctx.fillStyle="#2b8a3e";
-    values.forEach((v,i)=>{
-        ctx.beginPath();
-        ctx.arc(x(i), y(v),4,0,Math.PI*2);
-        ctx.fill();
-    });
-}
-
-function drawPie(records){
-    const cv = document.getElementById("pieChart");
-    const ctx = cv.getContext("2d");
-
-    cv.width = cv.clientWidth;
-    cv.height = cv.clientHeight;
-
-    let sums = {};
-    records.forEach(r=> sums[r.category]=(sums[r.category]||0)+r.value );
-
-    const total = Object.values(sums).reduce((a,b)=>a+b,0);
-    if(total===0){
-        ctx.fillText("Brak danych",20,40);
-        return;
-    }
-
-    let start = 0;
-    const cx = cv.width/2;
-    const cy = cv.height/2;
-    const R = Math.min(cx,cy)-20;
-
-    const colors=["#2b8a3e","#be5f18","#f39c12","#6c757d"];
-
-    Object.keys(sums).forEach((cat,i)=>{
-        const val = sums[cat];
-        const slice = (val/total)*2*Math.PI;
-
-        ctx.beginPath();
-        ctx.moveTo(cx,cy);
-        ctx.arc(cx,cy,R,start,start+slice);
-        ctx.fillStyle = colors[i%colors.length];
-        ctx.fill();
-
-        const mid = start + slice/2;
-        const lx = cx + Math.cos(mid)*R*0.6;
-        const ly = cy + Math.sin(mid)*R*0.6;
-
-        ctx.fillStyle="#222";
-        ctx.fillText(cat+" "+((val/total)*100).toFixed(1)+"%", lx-30, ly);
-
-        start+=slice;
-    });
-}
-
-document.addEventListener("DOMContentLoaded", ()=>{
-    const sel = document.getElementById("rangeSelect");
-
-    function update(){
-        drawLine(RECORDS, sel.value);
-        drawPie(RECORDS);
-    }
-
-    sel.addEventListener("change", update);
-    window.addEventListener("resize", update);
-    update();
-});
-</script>
-
-<script>
-// =======================
-// 1. MAPA podkategorii
-// =======================
-const SUBS = {
-    transport: {
-        walk: "Spacer",
-        bike: "Rower",
-        escooter_electric: "E-hulajnoga",
-        scooter_petrol: "Skuter (benzyna)",
-        car_petrol: "Samochód benzynowy",
-        car_diesel: "Samochód diesel",
-        car_hybrid: "Samochód hybrydowy",
-        car_ev: "Samochód elektryczny",
-        bus: "Autobus",
-        train: "Pociąg",
-        plane_short: "Lot krótki",
-        plane_long: "Lot długi"
-    },
-    food: {
-        beef: "Wołowina",
-        lamb: "Baranina",
-        cheese: "Ser",
-        pork: "Wieprzowina",
-        poultry: "Drób",
-        eggs: "Jajka",
-        fish: "Ryby",
-        vegetables: "Warzywa",
-        fruits: "Owoce",
-        grains: "Zboża",
-        nuts: "Orzechy"
-    },
-    energy: {
-        electricity_pl: "Prąd (mix PL)",
-        electricity_green: "Prąd zielony",
-        gas: "Gaz",
-        lpg: "LPG",
-        coal: "Węgiel"
-    },
-    other: {
-        electronics: "Elektronika",
-        clothing: "Ubrania",
-        furniture: "Meble"
-    }
-};
-
-// =======================
-// 2. Po wyborze kategorii → wypełnij podkategorie
-// =======================
-document.getElementById("sim-category").addEventListener("change", () => {
-    const cat = document.getElementById("sim-category").value;
-    const subSelect = document.getElementById("sim-subcategory");
-
-    subSelect.innerHTML = "<option value=''>-- wybierz --</option>";
-
-    if (!SUBS[cat]) return;
-
-    Object.entries(SUBS[cat]).forEach(([key, label]) => {
-        subSelect.innerHTML += `<option value="${key}">${label}</option>`;
-    });
-});
-
-// =======================
-// 3. Wywołanie API
-// =======================
-document.getElementById("sim-run").addEventListener("click", async () => {
-    const category = document.getElementById("sim-category").value;
-    const subcategory = document.getElementById("sim-subcategory").value;
-    const amount = document.getElementById("sim-amount").value;
-
-    if (!category || !subcategory || !amount) {
-        alert("Wypełnij wszystkie pola");
-        return;
-    }
-
-    const res = await fetch("/simulate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            category,
-            subcategory,
-            change: parseFloat(amount)
-        })
-    });
-
-    const data = await res.json();
-
-    // ===========================
-    // 4. Prezentacja wyniku
-    // ===========================
-    const box = document.getElementById("sim-result");
-    box.style.display = "block";
-
-    if (data.error) {
-        box.innerHTML = `<div class='error'>${data.error}</div>`;
-        return;
-    }
-
-    box.innerHTML = `
-    <div class="card" style="background:#f3fff3;">
-        <h3>Wynik symulacji</h3>
-        <p><b>Zmiana:</b> ${amount} jednostek (${SUBS[category][subcategory]})</p>
-
-        <ul>
-            <li><b>Dziennie:</b> ${data.daily} kg CO₂</li>
-            <li><b>Miesięcznie:</b> ${data.monthly} kg CO₂</li>
-            <li><b>Rocznie:</b> ${data.yearly} kg CO₂ (${data.yearly_tons} t)</li>
-        </ul>
-
-        <h4>To odpowiada:</h4>
-        <ul>
-            <li>${data.equivalents.trees_absorbed} drzew (pochłanianie CO₂ przez rok)</li>
-            <li>${data.equivalents.car_km} km przejazdu samochodem</li>
-        </ul>
-    </div>
-    `;
-});
-</script>
-
-
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 {% endblock %}

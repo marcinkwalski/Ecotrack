@@ -1,1 +1,27 @@
-{% extends "base.html" %}{% block content %}<h1>Rejestracja</h1><form method="post" class="form card"><label>Email<input type="email" name="email" required></label><label>Hasło<input type="password" name="password" required></label><label>Powtórz<input type="password" name="confirm" required></label><button>Zarejestruj</button></form>{% endblock %}
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-sm">
+            <div class="card-header">Rejestracja</div>
+            <div class="card-body">
+                <form method="post" class="vstack gap-3">
+                    <div>
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Hasło</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Powtórz</label>
+                        <input type="password" name="confirm" class="form-control" required>
+                    </div>
+                    <button class="btn btn-success w-100" type="submit">Zarejestruj</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

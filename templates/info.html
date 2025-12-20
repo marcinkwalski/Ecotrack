@@ -1,509 +1,285 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Informacje ekologiczne — Analizy globalne i krajowe</h1>
+<h1 class="mb-4">Informacje ekologiczne — Analizy globalne i krajowe</h1>
 
-<style>
-    .tabs {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
-    }
+<ul class="nav nav-pills mb-4 flex-wrap gap-2" id="infoTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="tab-globalne-btn" data-bs-toggle="pill" data-bs-target="#tab-globalne" type="button" role="tab">
+            <i class="bi bi-globe2 me-1"></i>Globalne
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-polska-btn" data-bs-toggle="pill" data-bs-target="#tab-polska" type="button" role="tab">
+            <i class="bi bi-flag me-1"></i>Polska
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-transport-btn" data-bs-toggle="pill" data-bs-target="#tab-transport" type="button" role="tab">
+            <i class="bi bi-car-front me-1"></i>Transport
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-energia-btn" data-bs-toggle="pill" data-bs-target="#tab-energia" type="button" role="tab">
+            <i class="bi bi-lightning-charge me-1"></i>Energia
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-jedzenie-btn" data-bs-toggle="pill" data-bs-target="#tab-jedzenie" type="button" role="tab">
+            <i class="bi bi-egg-fried me-1"></i>Jedzenie
+        </button>
+    </li>
+</ul>
 
-    .tab-btn {
-        padding: 10px 16px;
-        border-radius: 6px;
-        background: #e6e6e6;
-        cursor: pointer;
-        font-weight: bold;
-        border: none;
-    }
-
-    .tab-btn.active {
-        background: #2b8a3e;
-        color: white;
-    }
-
-    .tab-content {
-        display: none;
-    }
-
-    .tab-content.active {
-        display: block;
-    }
-
-    .info-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-        gap: 22px;
-        margin-top: 20px;
-    }
-
-    .card {
-        background: white;
-        border-radius: 12px;
-        padding: 20px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    }
-
-    .fact {
-        display: flex;
-        gap: 12px;
-        margin-bottom: 10px;
-    }
-
-    .fact-icon {
-        font-size: 28px;
-    }
-</style>
-
-<div class="tabs">
-    <button class="tab-btn active" data-tab="globalne">🌍 Globalne</button>
-    <button class="tab-btn" data-tab="polska">🇵🇱 Polska</button>
-    <button class="tab-btn" data-tab="transport">🚗 Transport</button>
-    <button class="tab-btn" data-tab="energia">⚡ Energia</button>
-    <button class="tab-btn" data-tab="jedzenie">🥗 Jedzenie</button>
-</div>
-
-<!-- ====================================================== -->
-<!--                ZAKŁADKA GLOBALNE                      -->
-<!-- ====================================================== -->
-<div id="globalne" class="tab-content active">
-    <h2>Globalny kontekst emisji CO₂</h2>
-
-    <div class="info-grid">
-
-        <!-- Wykres globalny -->
-        <section class="card">
-            <h3>Emisje CO₂ na świecie (1850–2023)</h3>
-            <canvas id="chartGlobal" style="width:100%; height:260px;"></canvas>
-            <p><small>Dane: Our World In Data, IPCC AR6</small></p>
-        </section>
-
-        <!-- Sektory -->
-        <section class="card">
-            <h3>Udział sektorów w globalnych emisjach</h3>
-            <canvas id="chartSectors" style="width:100%; height:260px;"></canvas>
-            <p><small>Dane: IPCC AR6 (2023)</small></p>
-        </section>
-
-        <!-- Fakty -->
-        <section class="card">
-            <h3>Najważniejsze fakty globalne</h3>
-            <div class="fact">
-                <div class="fact-icon">🌍</div>Emisje globalne w 2023: <b>36,8 Gt CO₂</b>
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="tab-globalne" role="tabpanel" aria-labelledby="tab-globalne-btn">
+        <h2 class="h4 mb-3">Globalny kontekst emisji CO₂</h2>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header">Emisje CO₂ na świecie (1850–2023)</div>
+                    <div class="card-body">
+                        <canvas id="chartGlobal" class="chart-canvas"></canvas>
+                        <p class="small text-muted mb-0">Dane: Our World In Data, IPCC AR6</p>
+                    </div>
+                </div>
             </div>
-            <div class="fact">
-                <div class="fact-icon">🔥</div>Wzrost temperatury (1850–2023): <b>+1,2°C</b>
+            <div class="col-lg-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header">Udział sektorów w globalnych emisjach</div>
+                    <div class="card-body">
+                        <canvas id="chartSectors" class="chart-canvas"></canvas>
+                        <p class="small text-muted mb-0">Dane: IPCC AR6 (2023)</p>
+                    </div>
+                </div>
             </div>
-            <div class="fact">
-                <div class="fact-icon">⚡</div>Największy udział: energetyka <b>~40%</b>
+            <div class="col-lg-12">
+                <div class="card shadow-sm">
+                    <div class="card-header">Najważniejsze fakty globalne</div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-globe"></i></span>
+                                    <div>Emisje globalne w 2023: <strong>36,8 Gt CO₂</strong></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-thermometer-half"></i></span>
+                                    <div>Wzrost temperatury (1850–2023): <strong>+1,2°C</strong></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-plug"></i></span>
+                                    <div>Największy udział: energetyka <strong>~40%</strong></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-graph-up-arrow"></i></span>
+                                    <div>Średnie emisje na osobę: <strong>4,7 t CO₂</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="fact">
-                <div class="fact-icon">📈</div>Średnie emisje na osobę: <b>4,7 t CO₂</b>
-            </div>
-        </section>
+        </div>
+    </div>
 
+    <div class="tab-pane fade" id="tab-polska" role="tabpanel" aria-labelledby="tab-polska-btn">
+        <h2 class="h4 mb-3">Emisje CO₂ w Polsce</h2>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header">Emisje CO₂ per capita – Polska vs UE</div>
+                    <div class="card-body">
+                        <canvas id="chartPolandEU" class="chart-canvas"></canvas>
+                        <p class="small text-muted mb-0">Dane: EEA 2023, GUS</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header">Miks energetyczny Polski (2023)</div>
+                    <div class="card-body">
+                        <canvas id="chartEnergyMix" class="chart-canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="card shadow-sm">
+                    <div class="card-header">Fakty o emisjach w Polsce</div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-person"></i></span>
+                                    <div>Emisje na osobę: <strong>8,0 t CO₂</strong></div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-fire"></i></span>
+                                    <div>Udział węgla w energii: <strong>64%</strong></div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-buildings"></i></span>
+                                    <div>Polska = 8. największy emitent CO₂ w UE</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="tab-transport" role="tabpanel" aria-labelledby="tab-transport-btn">
+        <h2 class="h4 mb-3">Wpływ transportu na emisje</h2>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header">Emisje CO₂ na km – różne środki transportu</div>
+                    <div class="card-body">
+                        <canvas id="chartTransport" class="chart-canvas"></canvas>
+                        <p class="small text-muted mb-0">Dane: IEA 2023</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header">Najważniejsze fakty o transporcie</div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-airplane"></i></span>
+                                    <div>Lot samolotem generuje <strong>255 g CO₂/km</strong></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-car-front"></i></span>
+                                    <div>Auto spalinowe: <strong>180 g CO₂/km</strong></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-train-front"></i></span>
+                                    <div>Pociąg: <strong>41 g CO₂/km</strong></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-bicycle"></i></span>
+                                    <div>Rower: <strong>0 g CO₂/km</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="tab-energia" role="tabpanel" aria-labelledby="tab-energia-btn">
+        <h2 class="h4 mb-3">Energia i emisje CO₂</h2>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header">Globalne źródła energii (2023)</div>
+                    <div class="card-body">
+                        <canvas id="chartGlobalEnergy" class="chart-canvas"></canvas>
+                        <p class="small text-muted mb-0">Dane: IEA Key Energy Statistics 2023</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header">Fakty o energetyce</div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-lightning"></i></span>
+                                    <div>Energetyka = <strong>~40% globalnych emisji</strong></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-wind"></i></span>
+                                    <div>OZE rosną najszybciej (+17% r/r)</div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-fire"></i></span>
+                                    <div>Węgiel nadal dominuje globalnie: <strong>36%</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="tab-jedzenie" role="tabpanel" aria-labelledby="tab-jedzenie-btn">
+        <h2 class="h4 mb-3">Jedzenie i ślad węglowy</h2>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header">Ślad CO₂ produktów spożywczych (kg CO₂/kg)</div>
+                    <div class="card-body">
+                        <canvas id="chartFood" class="chart-canvas"></canvas>
+                        <p class="small text-muted mb-0">Dane: Poore & Nemecek 2018</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header">Najważniejsze fakty o żywności</div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-basket"></i></span>
+                                    <div>Wołowina: <strong>27 kg CO₂/kg</strong></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-egg"></i></span>
+                                    <div>Wieprzowina: <strong>12 kg</strong></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-droplet"></i></span>
+                                    <div>Drób: <strong>7 kg</strong></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex gap-3 align-items-start">
+                                    <span class="icon-circle"><i class="bi bi-flower1"></i></span>
+                                    <div>Warzywa: <strong>0,5–2 kg</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
+{% endblock %}
 
-<!-- ====================================================== -->
-<!--                      POLSKA                            -->
-<!-- ====================================================== -->
-<div id="polska" class="tab-content">
-    <h2>Emisje CO₂ w Polsce</h2>
-
-    <div class="info-grid">
-
-        <section class="card">
-            <h3>Emisje CO₂ per capita – Polska vs UE</h3>
-            <canvas id="chartPolandEU" style="width:100%; height:260px;"></canvas>
-            <p><small>Dane: EEA 2023, GUS</small></p>
-        </section>
-
-        <section class="card">
-            <h3>Miks energetyczny Polski (2023)</h3>
-            <canvas id="chartEnergyMix" style="width:100%; height:260px;"></canvas>
-        </section>
-
-        <section class="card">
-            <h3>Fakty o emisjach w Polsce</h3>
-            <div class="fact">
-                <div class="fact-icon">🇵🇱</div>Emisje na osobę: <b>8,0 t CO₂</b>
-            </div>
-            <div class="fact">
-                <div class="fact-icon">⚡</div>Udział węgla w energii: <b>64%</b>
-            </div>
-            <div class="fact">
-                <div class="fact-icon">🏭</div>Polska = 8. największy emitent CO₂ w UE
-            </div>
-        </section>
-
-    </div>
-</div>
-
-
-<!-- ====================================================== -->
-<!--                      TRANSPORT                         -->
-<!-- ====================================================== -->
-<div id="transport" class="tab-content">
-    <h2>Wpływ transportu na emisje</h2>
-
-    <div class="info-grid">
-
-        <section class="card">
-            <h3>Emisje CO₂ na km – różne środki transportu</h3>
-            <canvas id="chartTransport" style="width:100%; height:260px;"></canvas>
-            <p><small>Dane: IEA 2023</small></p>
-        </section>
-
-        <section class="card">
-            <h3>Najważniejsze fakty o transporcie</h3>
-            <div class="fact">
-                <div class="fact-icon">✈️</div>Lot samolotem generuje <b>255 g CO₂/km</b>
-            </div>
-            <div class="fact">
-                <div class="fact-icon">🚗</div>Auto spalinowe: <b>180 g CO₂/km</b>
-            </div>
-            <div class="fact">
-                <div class="fact-icon">🚆</div>Pociąg: <b>41 g CO₂/km</b>
-            </div>
-            <div class="fact">
-                <div class="fact-icon">🚲</div>Rower: <b>0 g CO₂/km</b>
-            </div>
-        </section>
-
-    </div>
-</div>
-
-
-<!-- ====================================================== -->
-<!--                        ENERGIA                         -->
-<!-- ====================================================== -->
-<div id="energia" class="tab-content">
-    <h2>Energia i emisje CO₂</h2>
-
-    <div class="info-grid">
-
-        <section class="card">
-            <h3>Globalne źródła energii (2023)</h3>
-            <canvas id="chartGlobalEnergy" style="width:100%; height:260px;"></canvas>
-            <p><small>Dane: IEA Key Energy Statistics 2023</small></p>
-        </section>
-
-        <section class="card">
-            <h3>Fakty o energetyce</h3>
-            <div class="fact">
-                <div class="fact-icon">⚡</div>Energetyka = <b>~40% globalnych emisji</b>
-            </div>
-            <div class="fact">
-                <div class="fact-icon">💨</div>OZE rosną najszybciej (+17% r/r)
-            </div>
-            <div class="fact">
-                <div class="fact-icon">🏭</div>Węgiel nadal dominuje globalnie: <b>36%</b>
-            </div>
-        </section>
-
-    </div>
-</div>
-
-
-<!-- ====================================================== -->
-<!--                       JEDZENIE                         -->
-<!-- ====================================================== -->
-<div id="jedzenie" class="tab-content">
-    <h2>Jedzenie i ślad węglowy</h2>
-
-    <div class="info-grid">
-
-        <section class="card">
-            <h3>Ślad CO₂ produktów spożywczych (kg CO₂/kg)</h3>
-            <canvas id="chartFood" style="width:100%; height:260px;"></canvas>
-            <p><small>Dane: Poore & Nemecek 2018</small></p>
-        </section>
-
-        <section class="card">
-            <h3>Najważniejsze fakty o żywności</h3>
-            <div class="fact">
-                <div class="fact-icon">🥩</div>Wołowina: <b>27 kg CO₂/kg</b>
-            </div>
-            <div class="fact">
-                <div class="fact-icon">🐖</div>Wieprzowina: <b>12 kg</b>
-            </div>
-            <div class="fact">
-                <div class="fact-icon">🍗</div>Drób: <b>7 kg</b>
-            </div>
-            <div class="fact">
-                <div class="fact-icon">🥦</div>Warzywa: <b>0,5–2 kg</b>
-            </div>
-        </section>
-
-    </div>
-</div>
-
-
-<!-- ====================================================== -->
-<!--                 LOGIKA ZAKŁADEK + WYKRESY              -->
-<!-- ====================================================== -->
-
-<script>
-    /* ==================== ZAKŁADKI ==================== */
-document.querySelectorAll(".tab-btn").forEach(btn=>{
-    btn.onclick = ()=>{
-        document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
-        btn.classList.add("active");
-
-        document.querySelectorAll(".tab-content").forEach(tc=>tc.classList.remove("active"));
-        document.getElementById(btn.dataset.tab).classList.add("active");
-        // przerysuj wykresy po otwarciu zakładki
-        setTimeout(()=>{
-        drawGlobal();
-        drawSectors();
-        drawPolandEU();
-        drawEnergyMix();
-        drawTransport();
-        drawFood();
-        drawGlobalEnergy();
-        }, 20);
-    };
-});
-
-/* ==================== WYKRESY ==================== */
-
-/* 1. Global trend */
-function drawGlobal(){
-    const c=document.getElementById("chartGlobal");
-    const x=c.getContext("2d");
-
-    c.width=c.clientWidth;
-    c.height=c.clientHeight;
-
-    const years=[1850,1900,1950,1970,1990,2000,2010,2020,2023];
-    const vals=[2,3,6,15,22,25,30,34,36.8];
-
-    const ML=50, MR=20, MT=20, MB=30;
-    const W=c.width-ML-MR, H=c.height-MT-MB;
-
-    const max=Math.max(...vals)*1.2;
-
-    const xx=i=>ML+(i/(vals.length-1))*W;
-    const yy=v=>MT+H-(v/max)*H;
-
-    x.clearRect(0,0,c.width,c.height);
-    x.strokeStyle="#ccc";
-    for(let i=0;i<5;i++){
-        const yy2=MT+(H*(i/4));
-        x.beginPath(); x.moveTo(ML,yy2); x.lineTo(ML+W,yy2); x.stroke();
-    }
-
-    x.strokeStyle="#2b8a3e"; x.lineWidth=3;
-    x.beginPath();
-    x.moveTo(xx(0),yy(vals[0]));
-    for(let i=1;i<vals.length;i++) x.lineTo(xx(i),yy(vals[i]));
-    x.stroke();
-
-    vals.forEach((v,i)=>{
-        x.beginPath(); x.arc(xx(i),yy(v),5,0,Math.PI*2); x.fillStyle="#2b8a3e"; x.fill();
-        x.fillStyle="#222";
-        x.fillText(years[i],xx(i)-10,c.height-5);
-    });
-}
-
-/* 2. Sektory */
-function drawSectors(){
-    const c=document.getElementById("chartSectors");
-    const x=c.getContext("2d");
-    c.width=c.clientWidth; c.height=c.clientHeight;
-
-    const data={"Energia":40,"Transport":20,"Przemysł":15,"Rolnictwo":12,"Budynki":6,"Odpady":2};
-    const entries=Object.entries(data);
-    const max=40;
-    const barW=c.width/entries.length-20;
-
-    x.clearRect(0,0,c.width,c.height);
-    entries.forEach((e,i)=>{
-        const h=(e[1]/max)*(c.height-50);
-        x.fillStyle="#2b8a3e";
-        x.fillRect(10+i*(barW+15),c.height-30-h,barW,h);
-        x.fillStyle="#222";
-        x.fillText(e[0],10+i*(barW+15),c.height-10);
-    });
-}
-
-/* 3. Polska vs UE */
-function drawPolandEU(){
-    const c=document.getElementById("chartPolandEU");
-    const x=c.getContext("2d");
-    c.width=c.clientWidth;c.height=c.clientHeight;
-
-    const lab=["USA","Australia","Polska","UE","Świat"];
-    const val=[14,16,8,6.4,4.7];
-    const max=16;
-    const barW=c.width/lab.length-20;
-
-    x.clearRect(0,0,c.width,c.height);
-    lab.forEach((l,i)=>{
-        const h=(val[i]/max)*(c.height-50);
-        x.fillStyle="#2b8a3e";
-        x.fillRect(10+i*(barW+15),c.height-30-h,barW,h);
-        x.fillStyle="#222";
-        x.fillText(l,10+i*(barW+15),c.height-10);
-    });
-}
-
-/* 4. Miks energetyczny PL */
-function drawEnergyMix(){
-    const c=document.getElementById("chartEnergyMix");
-    const x=c.getContext("2d");
-    c.width=c.clientWidth;c.height=c.clientHeight;
-
-    const data={"Węgiel":64,"Gaz":17,"OZE":19};
-    const max=64;
-    const entries=Object.entries(data);
-    const barW=c.width/entries.length-30;
-
-    x.clearRect(0,0,c.width,c.height);
-    entries.forEach((e,i)=>{
-        const h=(e[1]/max)*(c.height-50);
-        x.fillStyle="#2b8a3e";
-        x.fillRect(15+i*(barW+25),c.height-30-h,barW,h);
-        x.fillStyle="#222";
-        x.fillText(e[0],15+i*(barW+25),c.height-10);
-    });
-}
-
-/* 5. Transport */
-function drawTransport(){
-    const c=document.getElementById("chartTransport");
-    const x=c.getContext("2d");
-    c.width=c.clientWidth;c.height=c.clientHeight;
-
-    const data={"Samolot":255,"Samochód":180,"Autobus":105,"Pociąg":41,"Rower":0};
-    const max=255;
-    const entries=Object.entries(data);
-    const barW=c.width/entries.length-20;
-
-    x.clearRect(0,0,c.width,c.height);
-    entries.forEach((e,i)=>{
-        const h=(e[1]/max)*(c.height-50);
-        x.fillStyle="#2b8a3e";
-        x.fillRect(10+i*(barW+15),c.height-30-h,barW,h);
-        x.fillStyle="#222";
-        x.fillText(e[0],10+i*(barW+15),c.height-10);
-    });
-}
-
-/* 6. Żywność */
-function drawFood(){
-    const c=document.getElementById("chartFood");
-    const x=c.getContext("2d");
-    c.width=c.clientWidth;c.height=c.clientHeight;
-
-    const foods={"Wołowina":27,"Wieprzowina":12,"Drób":7,"Ryby":5,"Warzywa":2};
-    const max=27;
-    const entries=Object.entries(foods);
-    const barW=c.width/entries.length-20;
-
-    x.clearRect(0,0,c.width,c.height);
-    entries.forEach((e,i)=>{
-        const h=(e[1]/max)*(c.height-50);
-        x.fillStyle="#2b8a3e";
-        x.fillRect(10+i*(barW+15),c.height-30-h,barW,h);
-        x.fillStyle="#222";
-        x.fillText(e[0],10+i*(barW+15),c.height-10);
-    });
-}
-/* 6. Globalne źródła energii (IEA 2023) */
-function drawGlobalEnergy(){
-    const c=document.getElementById("chartGlobalEnergy");
-    if (!c) return;
-    const x=c.getContext("2d");
-
-    c.width = c.clientWidth;
-    c.height = c.clientHeight;
-
-    const data = {
-        "Węgiel": 36,
-        "Gaz": 22,
-        "Ropa": 28,
-        "OZE": 12,
-        "Atom": 4
-    };
-
-    const entries = Object.entries(data);
-    const max = 36; // największa wartość
-    const barW = c.width / entries.length - 25;
-
-    x.clearRect(0,0,c.width,c.height);
-
-    entries.forEach((e,i)=>{
-        const [label,val] = e;
-        const h = (val/max) * (c.height - 50);
-
-        x.fillStyle = "#2b8a3e";
-        x.fillRect(10 + i*(barW+15), c.height - 30 - h, barW, h);
-
-        x.fillStyle = "#222";
-        x.fillText(label, 10 + i*(barW+15), c.height - 10);
-    });
-}
-/* 6. Globalne źródła energii (IEA 2023) */
-function drawGlobalEnergy(){
-const c=document.getElementById("chartGlobalEnergy");
-if (!c) return;
-const x=c.getContext("2d");
-
-c.width = c.clientWidth;
-c.height = c.clientHeight;
-
-const data = {
-"Węgiel": 36,
-"Gaz": 22,
-"Ropa": 28,
-"OZE": 12,
-"Atom": 4
-};
-
-const entries = Object.entries(data);
-const max = 36; // największa wartość
-const barW = c.width / entries.length - 25;
-
-x.clearRect(0,0,c.width,c.height);
-
-entries.forEach((e,i)=>{
-const [label,val] = e;
-const h = (val/max) * (c.height - 50);
-
-x.fillStyle = "#2b8a3e";
-x.fillRect(10 + i*(barW+15), c.height - 30 - h, barW, h);
-
-x.fillStyle = "#222";
-x.fillText(label, 10 + i*(barW+15), c.height - 10);
-});
-}
-
-/* INIT */
-document.addEventListener("DOMContentLoaded", ()=>{
-    drawGlobal();
-    drawSectors();
-    drawPolandEU();
-    drawEnergyMix();
-    drawTransport();
-    drawFood();
-    drawGlobalEnergy();
-
-    window.addEventListener("resize", ()=>{
-        drawGlobal();
-        drawSectors();
-        drawPolandEU();
-        drawEnergyMix();
-        drawTransport();
-        drawFood();
-        drawGlobalEnergy();
-    });
-});
-
-</script>
-
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/info.js') }}"></script>
 {% endblock %}

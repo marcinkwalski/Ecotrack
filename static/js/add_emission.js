@@ -51,12 +51,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const onCategoryChange = () => {
         const cat = categorySelect.value;
         subcategorySelect.innerHTML = "";
-        (subcats[cat] || []).forEach(([val, label]) => {
-            const opt = document.createElement("option");
-            opt.value = val;
-            opt.textContent = label;
-            subcategorySelect.appendChild(opt);
-        });
+        const placeholder = document.createElement("option");
+        placeholder.value = "";
+        placeholder.textContent = "Wybierz podkategorię";
+        placeholder.disabled = true;
+        placeholder.selected = true;
+        subcategorySelect.appendChild(placeholder);
+
+        const entries = subcats[cat] || [];
+        if (entries.length === 0) {
+            const empty = document.createElement("option");
+            empty.value = "";
+            empty.textContent = "Brak podkategorii";
+            subcategorySelect.appendChild(empty);
+            subcategorySelect.disabled = true;
+        } else {
+            entries.forEach(([val, label]) => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = label;
+                subcategorySelect.appendChild(opt);
+            });
+            subcategorySelect.disabled = false;
+        }
 
         if (cat === "transport") {
             unitInput.value = "km";

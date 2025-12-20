@@ -69,12 +69,28 @@ document.addEventListener("DOMContentLoaded", () => {
         const cat = categorySelect.value;
         const items = SUBCATEGORIES[cat] || {};
         subcategorySelect.innerHTML = "";
-        Object.entries(items).forEach(([key, label]) => {
-            const opt = document.createElement("option");
-            opt.value = key;
-            opt.textContent = label;
-            subcategorySelect.appendChild(opt);
-        });
+        const placeholder = document.createElement("option");
+        placeholder.value = "";
+        placeholder.textContent = "Wybierz podkategorię";
+        placeholder.disabled = true;
+        placeholder.selected = true;
+        subcategorySelect.appendChild(placeholder);
+        const entries = Object.entries(items);
+        if (entries.length === 0) {
+            const empty = document.createElement("option");
+            empty.value = "";
+            empty.textContent = "Brak podkategorii";
+            subcategorySelect.appendChild(empty);
+            subcategorySelect.disabled = true;
+        } else {
+            entries.forEach(([key, label]) => {
+                const opt = document.createElement("option");
+                opt.value = key;
+                opt.textContent = label;
+                subcategorySelect.appendChild(opt);
+            });
+            subcategorySelect.disabled = false;
+        }
         unitInput.value = UNITS[cat] || "";
     };
 
@@ -279,9 +295,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (pieLegend) {
             pieLegend.innerHTML = slices
                 .map((slice, i) => {
-                    return `<div class=\"legend-item\"><span class=\"legend-swatch\" style=\"background:${colors[i % colors.length]}\"></span><span>${slice.cat} ${slice.percent}%</span></div>`;
+                    return `<div class="legend-item"><span class="legend-swatch" style="background:${colors[i % colors.length]}"></span><span>${slice.cat} ${slice.percent}%</span></div>`;
                 })
-                .join(\"");
+                .join("");
         }
 
         const handleMove = (event) => {
@@ -370,16 +386,30 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         const cat = simCategory.value;
-        simSubcategory.innerHTML = "<option value=''>-- wybierz --</option>";
-        if (!SUBCATEGORIES[cat]) {
+        simSubcategory.innerHTML = "";
+        const placeholder = document.createElement("option");
+        placeholder.value = "";
+        placeholder.textContent = "Wybierz podkategorię";
+        placeholder.disabled = true;
+        placeholder.selected = true;
+        simSubcategory.appendChild(placeholder);
+        const items = SUBCATEGORIES[cat] || {};
+        const entries = Object.entries(items);
+        if (entries.length === 0) {
+            const empty = document.createElement("option");
+            empty.value = "";
+            empty.textContent = "Brak podkategorii";
+            simSubcategory.appendChild(empty);
+            simSubcategory.disabled = true;
             return;
         }
-        Object.entries(SUBCATEGORIES[cat]).forEach(([key, label]) => {
+        entries.forEach(([key, label]) => {
             const opt = document.createElement("option");
             opt.value = key;
             opt.textContent = label;
             simSubcategory.appendChild(opt);
         });
+        simSubcategory.disabled = false;
     };
 
     if (simCategory) {
